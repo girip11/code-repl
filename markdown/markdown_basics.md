@@ -60,8 +60,8 @@ The below document captures the syntax of general markdown.
 # Quoting code
 * Single line of code \` \`.   
   > \`printf("hello world");\` will be displayed as  
-    
-        `printf("hello world");`
+  
+    `printf("hello world");`
 
 * Block of code - Encode between \`\`\` \`\`\`
     > \`\`\`  
