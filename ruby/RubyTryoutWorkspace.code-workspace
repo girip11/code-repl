@@ -1,0 +1,14 @@
+{
+	"folders": [{
+		"path": "."
+	}],
+	"settings": {
+		"ruby.codeCompletion": "rcodetools",
+		"ruby.format": "rubocop",
+		"ruby.intellisense": "rubyLocate",
+		"ruby.lint": {
+			"rubocop": true,
+		},
+		"ruby.lintDebounceTime": 500
+	}
+}
