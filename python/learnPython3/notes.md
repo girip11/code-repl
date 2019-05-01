@@ -58,10 +58,10 @@ Identifier naming rules
 * Division and multiplication same precedence and addition and subtraction in same precedence.
 * All the binary operators are left associative except the assignment operator which is right associative.
 * Chained assignment 
-```Python
-# Right most expression executed first
-a = b = c = d
-```
+  ```Python
+  # Right most expression executed first
+  a = b = c = d
+  ```
 * Arithmetic shorthand operators
   ```Python
     x *= 5 # same as x = x * 5 
@@ -146,7 +146,7 @@ def method_name(parameter_list):
 ## Chapter 8
 * global variables are declared outside all the functions.
 * global variables usage discouraged inside functions
-* Python supports default parameters. non default parameters hsould come before default parameters.
+* Python supports default parameters. non default parameters should come before default parameters.
 * function is a special kind of object. 
   ```Python
     print(type(sqrt))
@@ -211,5 +211,138 @@ def method_name(parameter_list):
 * strings are immutable.
 * lists contains methods like insert, append, remove, index, sort, reverse etc. Many of these methods modify the list itelf like insert, reverse, sort, append, remove etc 
 
+## Chapter 12
+Custom type creation
+  ```Python
+    # Syntax
+    class ClassName:
+      # constructor
+      def __init__(self, parameters):
+        # constructor block
+      
+      # to protect object attributes from external
+      # access, prefix the attribute with the double underscore. Such attributes cannot be accessed directly from outside the objects of this class
+  ```
+* To every method inside the object,we pass a parameter call **self** which refers to the object itslef.
+
+* Inheritance syntax
+  ```Python
+    class ChildClass(ParentClass):
+      def __init__(self, paarmeters):
+        # first invoke the base class constructor
+        ParentClass.__init__(self, params)
+        # Base class constructor can also be invoked like below
+        super(ChildClass, self).__init__(params)
+        # Even simplifying, base class constructor can be invoked as below
+        super().__init__(params)
+        # Child class constructor implementation follows
+  ```
+* when calling methods of objects, we dont need to pass the object explicitly(to satisfy the self param), because python passes the instance implicitly to the method.
+*Any variable declared/defined in a class witout self word becomes a class variable shared by all the instances of the class.
+
+## Chapter 13 - Exception Handling
+Syntax
+  ```Python
+  try:
+    #try block
+  except <Error> as error_variable:
+    # exception handling block
+
+  # handling all exceptions
+  try:
+    # try block
+  except:
+    # catches all
+    pass
+
+  # try catch finally
+  try:
+    # try block
+  except:
+    # exceptin block
+  finally:
+
+  # try except else finally
+  try:
+    # code that may throw exception
+  except:
+    # handle exceptions
+  else:
+    # block to execute if try was successful
+  finally:
+    # irrespective of exception raised or not, execute this code.
+  ```
+* to throw exception, use `raise` keyword.
+  ```Python
+    def getQuotient(num, den):
+      if den == 0 :
+        raise ZeroDivisionError
+      return num / den
+  ```
+* Custom exceptions should inherit from the `Exception` class.
+
+## From python documentation
+* Python supports multiple inheritance
+  ```Python
+    # multiple inheritance syntax
+    class Subclass(SuperClass1, SuperClass2..):
+      # class body
+    
+    # In case of method invocations in base class, the method is lookedup from left to right ordering of the parent classes and its hierarchy.
+
+    # This will handle the diamond inheritance problem as well.
+  ```
+* **pass** statement is a no-op statement in python. Helps to declare a no op loop or empty class
+  ```Python
+  class EmptyClass:
+    pass
+  ```
+* Python supports class variables.
+  ```Python
+    class SampleClass:
+      
+      # Public class variable shared by all instances.
+      classPublicVar = "PublicVar"
+
+      # Private class variable shared by all instances.
+      __classPrivateVar = "PrivateVar"
+
+      # To access the class private variable
+      def accessPrivateClassVariable(self):
+        # self.__classPrivateVar
+        SampleClass.__classPrivateVar
+  ```
+
+* Function overloading does not work in python like in C++ or java. But we can define functions accepting variable parameters.
+  ```Python
+  def func(param1, *params):
+    for param in params:
+      print(param)
+  ```
+
+* Iterating over different collections
+  ```Python
+  # Iterating over list
+  for element in [1, 2, 3]:
+    print(element)
+
+  # Iterating over tuple
+  for element in (1, 2, 3):
+      print(element)
+
+  # Iterating over dictionary
+  for key in {'one':1, 'two':2}:
+      print(key)
+
+  # Iterating over String 
+  for char in "123":
+      print(char)
+  
+  # Iterating over contents of file
+  for line in open("myfile.txt"):
+      print(line, end='')
+  ```
+
 # References:
 * Learn to code in python3 by Richard L.Halterman
+* [Python3 documentation](https://docs.python.org/3/tutorial/classes.html)
