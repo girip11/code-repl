@@ -17,6 +17,8 @@
 * Used to store a collection of key value pairs
 
 ```Ruby
+hashObj = Hash.new
+
 states = {
     "key1" => "value1",
     "key2" => "value2"
