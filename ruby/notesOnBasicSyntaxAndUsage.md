@@ -191,6 +191,8 @@ end
 ```
 
 # Inheritance
+Ruby does not support multiple inheritance.
+
 Syntax
 ```Ruby
 class Parent
