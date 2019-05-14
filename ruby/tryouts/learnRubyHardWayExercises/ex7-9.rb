@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # prints the string n times
 puts '.' * 10
 puts 'Girish' * 5

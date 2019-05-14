@@ -6,7 +6,7 @@
 * To exit from the ruby shell type `quit`.
 * ruby works with file extension **.rb**
 
-# String and  Text
+# String and Text
 * String is enclosed between either " or '
 
 * But #{} has meaning only in Strings within "".
