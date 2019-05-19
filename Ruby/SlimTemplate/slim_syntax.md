@@ -117,6 +117,12 @@ Slim template will be executed to generate html which will be served as the view
   / attribute merging happens in this case. the resulting div will have / two classes
   div.center class="jumbotron"
 
+  / Array can be used for attribute values
+  div class=["center", "jumbotron"]
+
+  / Below syntax also causes attributes to be merged
+  div class=:center,:jumbotron
+
   / attribute wrapping using {} or [] or ()
   / helps attributes span across multiple lines
   nav{class="navbar navbar-fixed-top"
@@ -188,14 +194,27 @@ Slim template will be executed to generate html which will be served as the view
   input type="text" disabled=nil
   ```
 
-* Splat attributes be placing * followed by ruby hash. This turns ruby hash to attribute value pairs
+* Splat attributes be placing * followed by ruby hash. This turns ruby hash to attribute value pairs. Prefix for splattng can also be changed using `splat_prefix` option.
   ```Slim
-  / TODO
+  / Splat attributes using hash
+  .container *{'data-url'=>place_path(place), 'data-id'=>place.id} = place.name
+  
+  / The below statement takes care of attribute merging as well.
+  .container *{class: [:center, :jumbotron]} 
+
+  / Use ruby method calls that return hash or hash instance variable
+  .container *method_which_returns_hash = item.name
+  .container *@hash_instance_variable = item.name
   ```
 
-* Dynamic tags
+* Dynamic tags can be embedded using splat attributes. The hash has to contain a key called **tag** and the value is the required html tag
   ```Slim
-  / TODO
+  ruby:
+    def get_item_url(item)
+      item.url.nil? ? {tag: 'span', class: 'no-url'} : {tag: 'a', href="#{item.url}"}
+    end
+
+  *get_item_url(item) = item.name
   ```
 
 ## Reference:
