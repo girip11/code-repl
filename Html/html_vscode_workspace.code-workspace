@@ -1,8 +1,19 @@
 {
-	"folders": [
-		{
-			"path": "."
+	"folders": [{
+		"path": "."
+	}],
+	"settings": {
+		"html.autoClosingTags": true,
+		"html.format.enable": true,
+		"html.suggest.html5": true,
+		"html.validate.styles": true,
+		"html.validate.scripts": true,
+		"html.format.endWithNewline": false,
+		"html.format.contentUnformatted": "pre,code,textarea",
+		"html.format.wrapLineLength": 100,
+		"html.format.wrapAttributes": "aligned-multiple",
+		"[html]": {
+			"editor.foldingStrategy": "indentation"
 		}
-	],
-	"settings": {}
+	}
 }
