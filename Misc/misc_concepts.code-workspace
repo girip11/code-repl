@@ -1,0 +1,9 @@
+{
+	"folders": [{
+		"path": "."
+	}],
+	"settings": {
+		"markdown.extension.toc.githubCompatibility": true,
+		"markdown.extension.tableFormatter.enabled": true
+	}
+}
