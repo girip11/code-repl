@@ -160,3 +160,5 @@ ___
 * [Markdown syntax](https://daringfireball.net/projects/markdown/syntax)
 * [Markdown basics](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
 * [Github flavored markdown](https://github.github.com/gfm/)
+* [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* [Another useful markdown cheatsheet](https://developers.datenstrom.se/help/markdown-cheat-sheet)
