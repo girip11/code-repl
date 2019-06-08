@@ -37,9 +37,9 @@ Below is the list of attrubutes that we endup using frequently. Exhaustive list 
 
 * [draggable attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/draggable) - enumerated attribute with true or false as accepted values. Default value is **auto**.Indicates whether an element can be dragged or not.
 
-* [hidden attribute] - boolean attribute. Can show or hide html elements.
+* [hidden attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden) - boolean attribute. Can show or hide html elements.
     ```HTML
-    <p hidden>This content is not relevant to this page right now, so should not be seen. Nothing to see here. Nada.</p>
+        <p hidden>This content is not relevant to this page right now, so should not be seen. Nothing to see here. Nada.</p>
     ```
 
 * [id attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) - Defines a unique identifier (ID) which must be unique in the whole document
