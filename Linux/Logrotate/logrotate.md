@@ -89,6 +89,35 @@ Some of the important logrotate configuration options are
 
 Other useful options like **mailing**, **maxage** can be referred in the man page.
 
+## Configuration examples
+```Bash
+# size based log rotate
+/var/log/postgresql.log {
+  compress
+  size 100K
+  rotate 5
+  start 0
+  missingok
+  notifempty
+  create 644 user user
+  extension .log
+}
+
+# uses copy truncate. Useful in cases where script logs STDOUT redirected to file
+/var/log/postgresql.log {
+  compress
+  daily
+  rotate 5
+  dateext
+  dateformat -%Y-%m-%d
+  missingok
+  notifempty
+  copytruncate
+  # file get names as xyz-YYYY-MM-DD.log.gz
+  extension .log
+}
+```
+
 ## Reference:
 * [Logrotate man](https://linux.die.net/man/8/logrotate)
 * [Manage log rotation](https://www.tecmint.com/install-logrotate-to-manage-log-rotation-in-linux/)
