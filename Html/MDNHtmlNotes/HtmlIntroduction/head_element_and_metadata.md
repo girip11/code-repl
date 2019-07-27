@@ -4,6 +4,7 @@ Covers details on various metadata that can be specified in HTML document and th
 ## Setting the language of the HTML document
 The root element **html** can have a **lang** attribute. This would help search engines index the HTML document more effectively as well as helpful for screen readers to correctly pronounce a word.
 ```HTML
+<!DOCTYPE html>
 <html lang = "en-US">
 </html>
 ```
@@ -19,21 +20,21 @@ Head tag contains the metadata of the HTML document. Usually metadata of an HTML
 * Adding information about CSS and JS either as link to external files or containing code internal to the HTML document.
 
 ## Title of HTML Document
- Title of an HTML document is assigned via the **&lt;title&gt;** element. This title gets displayed in the browser tag and is usually used as teh document name while bookmarking.
+ Title of an HTML document is assigned via the **&lt;title&gt;** element. This title gets displayed in the browser tab and is usually used as the document name while bookmarking.
 
 ## Standard metadata of HTML document 
 Metadata like author, description of HTML document can be added via the **&lt;meta&gt;** element.  
 ```HTML
-    <!-- meta element is an empty element. No closing tags required -->
-    <meta charset = "utf-8">
+  <!-- meta element is an empty element. No closing tags required -->
+  <meta charset = "utf-8">
 
-    <!-- if meta tag contains name and content pairs, it cannnot contain other attributes like charset, lang etc -->
-    <!-- name and content attributes go together.
-    Name attribute contains the type of metadata getting defined and the content attribute contains the value for the metadata mentioned in the name attribute. -->
-    <!-- Metadata like description, keywords might be indexed by search engines. So its helpful to set these metadata-->
-    <meta name="author" content="Girish">
-    <meta name="description" content="Document containing information about specifying metadata in HTML documents">
-    <meta name="keywords" content="HTML, Head element, metadata">
+  <!-- if meta tag contains name and content pairs, it cannnot contain other attributes like charset, lang etc -->
+  <!-- name and content attributes go together.
+  Name attribute contains the type of metadata getting defined and the content attribute contains the value for the metadata mentioned in the name attribute. -->
+  <!-- Metadata like description, keywords might be indexed by search engines. So its helpful to set these metadata-->
+  <meta name="author" content="Girish">
+  <meta name="description" content="Document containing information about specifying metadata in HTML documents">
+  <meta name="keywords" content="HTML, Head element, metadata">
 ```
 
 ## Custom metadata for representation in various websites like Facebook
@@ -49,7 +50,8 @@ Metadata like author, description of HTML document can be added via the **&lt;me
 ## Adding Icon to the HTML document
 Icon can be added to the HTML document via the **&lt;link&gt;** element. Link element is also an empty element.
 ```HTML
-    <link rel="icon" href="favicon.ico" type="image/icon">
+  <!-- rel attribute stands for relation between the HTML element and the href attribute. href stands for hypertext reference. This attribute contains the source file used by the HTML element-->
+  <link rel="icon" href="favicon.ico" type="image/icon">
 ```
 
 ## Adding CSS Internallly and externally
@@ -63,16 +65,16 @@ Internally style can be added using the **&lt;style&gt;** element.
 ```HTML
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <style>
-            * {
-                box-sizing: border-box;
-            }
-        </style>
-    </head>
+  <head>
+      <style>
+          * {
+              box-sizing: border-box;
+          }
+      </style>
+  </head>
 
-    <body>
-    </body>
+  <body>
+  </body>
 </html>
 ```
 
