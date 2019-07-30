@@ -90,5 +90,14 @@ Internally style can be added using the **&lt;style&gt;** element.
     <script src="link-to-external-js.js" type="text/javascript" />
 ``` 
 
+## Adding base url at document level
+We can specify the base URL at document level using the **&lt;base&gt;** element. This is an empty html element, so doesnot need closing tags. In case of multiple base elements mentioned in the same document, the first one in the document gets priority.
+```HTML
+<!-- If this element is to be specified with href attribute, this element should be placed before all other HTML elements that can contain URL values in the attributes. For instance, it should appear before link and script elements in the head section-->
+<base href="http://www.example.com" target="_blank">
+<!-- Anchor tag relative URLs will be resolved with this base url. Absolute URLs will not be used along with base url.-->
+```
+* **href** and **target** are the two main attributes associated with this element. **target** attribute decides which browsing context a URL in the document should be loaded. Commonly used values are **_self** and **_blank** which will open in the link in same and new browsing context respectively. 
+
 ## Reference
 * [HTML Document metadata](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)

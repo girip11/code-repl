@@ -1,4 +1,5 @@
 # HTML Text fundamentals
+All the content resides inside the **&lt;body&gt;** element. It is the content sectioning root.
 
 ## Headings, paragraphs and content structuring
 * Heading tags are **&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt; and &lt;h6&gt;**. Paragraph test is placed inside the HTML element **&lt;p&gt;**.
@@ -6,22 +7,28 @@
 * General practice is to keep the heading levels to 3 per page.
 * Heading play an important role in indexing webpages by search engines.
 * Headings helps give the document outline when presented through **screen reader**. **Makes the HTML page more accesible.**
-```HTML
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <title>Sample HTML document</title>
-  </head>
-  <body>
-    <h1>Document heading</h1>
-      <h2>Chapter 1</h2>
-        <h3>Introduction to Bash</h3>
-          <p> Bash is the default shell of GNU operating system. Bash stands for <b>B</b>ourne <b>A</b>gain <b>SH</b>ell, pun intended on the author of unix shell Stephen Bourne.
-        <h3>Bash Documentation</h3>
-          <p>Bash manual is available at <a href="https://www.gnu.org/software/bash/manual/bash.html" title="Bash manual"></a></p>
-  </body>
-</html>
-```
+  ```HTML
+  <!DOCTYPE html>
+  <html lang="en-US">
+    <head>
+      <title>Sample HTML document</title>
+    </head>
+    <body>
+      <h1>Document heading</h1>
+        <h2>Chapter 1</h2>
+          <h3>Introduction to Bash</h3>
+            <p> Bash is the default shell of GNU operating system. Bash stands for <b>B</b>ourne <b>A</b>gain <b>SH</b>ell, pun intended on the author of unix shell Stephen Bourne.
+          <h3>Bash Documentation</h3>
+            <p>Bash manual is available at <a href="https://www.gnu.org/software/bash/manual/bash.html" title="Bash manual"></a></p>
+    </body>
+  </html>
+  ```
+
+## Horizontal rule
+**&lt;hr&gt;** is a thematic way of separating two paragraphs or logical sections. Though **&lt;p&gt;** element itself is a block level element and so newlines already separate the two paragraphs, **&lt;hr&gt;** is used to **convey a shift in the topic within a section**. This is a empty html element.
+
+## Line breaks
+When we need to separate content within a paragraph element with new lines(for instance poems with verses), we use **&lt;br&gt;** element. This is an empty html element.
 
 ## Lists
 Lists in html can either be ordered or unordered. Lists can be nested.
