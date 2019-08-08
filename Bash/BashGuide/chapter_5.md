@@ -64,7 +64,7 @@ echo $msg
 * $BASH_VERSION
 * $HOME - current logged in user home directory path
 * $HOSTNAME 
-* $IFS - Internal File separators
+* $IFS - Internal Field separators
 * $PWD - present working directory
 * $OLDPWD - previous working directory
 * $PATH - command seach path

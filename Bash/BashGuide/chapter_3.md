@@ -32,7 +32,7 @@ str2="\"Tennis\" is an awesome sport"
 echo $str2
 ```
 
-## Internal File Separator(IFS)
+## Internal Field Separator(IFS)
 Default IFS are space(' '), tabs('\t') and newlines('\n').
 ```Bash
 # ceching IFS settings in a shell
