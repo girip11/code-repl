@@ -241,6 +241,60 @@ fruits_set1 & fruits_set2
 ```
 
 ## Dictionary
-```Python
+Key must be of immutable type integer, float, string, tuple
 
+```Python
+empty_dict = {}
+
+details = {"name": "John Doe", "age": 25, "mobile": "123456789", "gender", "male"}
+
+print(details["name"])
+
+# iterate through dictionary
+for key in details:
+  print("Key:" + key + ", value:" + str(details[key]))
+
+if "name" in details:
+  print(details["name"])
+else:
+  print("name attribute not available")
+
+# get a default value from dictionary when key is not present
+gender = details.get("gender", "NotPresent")
+
+keys_list = details.keys()
+values_list = details.values()
+key_value_pairs = details.items()
+
+for key, value in details.items():
+  print(",".join([key, value]))
+
+# length of the dictionary
+len(details)
+
+# blank dictionary from list
+fruits = ["Apple", "Mango", "Orange"]
+# values are set to None
+dict.fromkeys(fruits)
+
+# deleting items from dictionary
+del details["gender"]
+
+# fetch the value and the delete
+age = details.pop("age", -1)
+
+# popitem() returns a random key value tuple.
+# on empty dictionary, KeyError is raised
+key_value = details.popitem()
+
+# clear all items in a dictionary
+details.clear()
+
+# sorting dictionary items
+sorted(details.items())
 ```
+
+
+## References:
+* [Python course](https://www.python-course.eu/python3_dictionaries.php)
+* [Python3 for absolute beginners](https://www.amazon.in/Python-Absolute-Beginners-Tim-Hall/dp/1430216328)
