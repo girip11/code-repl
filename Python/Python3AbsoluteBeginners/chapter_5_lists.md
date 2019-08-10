@@ -294,6 +294,7 @@ details.clear()
 sorted(details.items())
 ```
 
+---
 
 ## References:
 * [Python course](https://www.python-course.eu/python3_dictionaries.php)
