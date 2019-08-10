@@ -1,4 +1,7 @@
 # Learning Bash scripting
+
+**NOTE:** This repo just has basic notes from the book **Bash Guide by Joseph Deveau** under **Bash/BashGuide**. Once you read the book completely, then these notes would be helpful for future reference.
+
 Any one of these two should help you become comfortable with bash scripting. You can also choose to go through both the sources.
 
 * [Bash Guide by Joseph Deveau](https://www.amazon.in/BASH-Guide-Joseph-DeVeau-ebook/dp/B01F8AZ1LE/ref=sr_1_4?keywords=bash&qid=1564983319&s=digital-text&sr=1-4)
