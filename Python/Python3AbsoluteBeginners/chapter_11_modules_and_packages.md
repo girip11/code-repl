@@ -33,7 +33,7 @@ Good practice to have all the imports at the top. Important variables follow the
 Module variables with leading underscore are treated internal to the module and are not imported to other modules when using wildcard import `from module import *`. But **explicit import is allowed**.
 
 
-## __name__ variable
+## \_\_name\_\_ variable
 Used when module is executed on its own.
 
 ```Python
