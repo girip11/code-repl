@@ -35,7 +35,7 @@ These parameetrs can only be referenced but not modified. Contains metadata rela
 
 * **\${parameter:=value}** or **\${parameter=value}**- sets default value if the parameter is not set.
 * **\${parameter:+value}** or **\${parameter+value}** - substitute value for parameter if parameter is set otherwise substitute nothing.
-* **\${parameter:-value}** or **\${parameter-value}** - substitute value when parameteris not set.
+* **\${parameter:-value}** or **\${parameter-value}** - substitute value when parameter is not set.
 
 ## Substring removal
 pattern can be made of simple globs or extended globs
