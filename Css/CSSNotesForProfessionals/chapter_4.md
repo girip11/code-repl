@@ -5,6 +5,7 @@
 * **\*** - universal selector
 * **div** - tag selector or html element selector. all **div** elements
 * **.blue** - class selector
+* **.blue.red** - element with classes **.blue** and **.red** (compound selector)
 * **#headline** - ID selector
 * **:pseudo-class** - applies to html elements with pseudo-class
 * **::pseudo-element** - element that matches the pseudo-element
@@ -121,6 +122,73 @@ p:last-of-child{
 }
 ```
 
+## :in-range pseudo class
+Associated with **input** html element where the **type** is for instance **number**
+```CSS
+/*  matches element when its value is inside specified range */
+input:in-range {
+  /* style */
+}
+/* HTML element looks like below */
+/* <input type="number" id="choc_count" name="choc_count" value="40" min="10" max="100" step="1"> */
+```
+
+## :not pseudo class
+```CSS
+/* Syntax */
+/* Supports comma separated selectors within ()*/
+tag_selector:not([attr], .class_name,...) {
+
+}
+/* or */
+/* element which contains doesnot contain attribute and doesnot have the class "class_name" */
+selector:not([attr]):not(.class_name){
+
+}
+
+/* Example */
+/* applies to all input elements that are not disabled and doesnot contain the class "important" */
+input.:not([disabled]):not(.important) {
+/* style */
+}
+```
+
+## :focus-within pseudo class
+**:focus-within** matches elements that themselves match **:focus** or that have descendants that match with **:focus**
+```CSS
+/* HTML */
+/* <div>
+    <input type="text">
+  </div> */
+
+/* div contains input that matches with :focus */
+div:focus-within {
+  background-color: blue;
+}
+```
+
+## :checked with general sibling combinator
+```CSS
+/* HTML
+  <label for="dark-theme">DarkTheme</label>
+  <input type="checkbox" id="dark-theme"  hidden>
+  <div id="container">
+  </div>
+  */
+
+/* Those  elements that are sibling to the element with ID "dark-theme" and placed after it, have their background color changed to black  */
+#dark-theme:checked ~ #container{
+  background-color: black;
+}
+```
+
+## Style range input
+```CSS
+/* this is an example */
+input[type="range"]:focus {
+  /* style */
+}
+```
 
 ---
 
