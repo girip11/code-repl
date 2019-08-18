@@ -14,10 +14,10 @@ These parameetrs can only be referenced but not modified. Contains metadata rela
 * **$#** - number of positional parameters passed to the script
 * **$\*** - all the positional parameters. If double quoted, results in a single string.
 * **$@** - all the positional parameters. If double quoted, results in a list of those parameters.
-* **$?** - exit code of last completed foreground command
-* **$!** - exit code of last completed background command
+* **$?** - exit code of most recently completed foreground command
+* **$!** - PID of the last completed background command
 * **$$** - process ID of the current shell
-* **$_** - last argument of the last completed command.
+* **$_** - last argument of the last completed foreground command after expansion.
 * **$-** - shell options that are set
 
 ## Parameter expansion
@@ -60,3 +60,5 @@ pattern can be made of simple globs or extended globs
 * [Bash Guide by Joseph Deveau](https://www.amazon.in/BASH-Guide-Joseph-DeVeau-ebook/dp/B01F8AZ1LE/ref=sr_1_4?keywords=bash&qid=1564983319&s=digital-text&sr=1-4)
 
 * [Parameter substitution](https://www.tldp.org/LDP/abs/html/parameter-substitution.html)
+* [Bash special parameters](https://www.gnu.org/software/bash/manual/bash.html#Special-Parameters)
+* [$! usage](https://unix.stackexchange.com/questions/85021/in-bash-scripting-whats-the-meaning-of)
