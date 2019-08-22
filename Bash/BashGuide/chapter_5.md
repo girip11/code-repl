@@ -68,7 +68,7 @@ echo $msg
 * $PWD - present working directory
 * $OLDPWD - previous working directory
 * $PATH - command seach path
-* $PIPESTATUS - exit status of last completed pipe
+* $PIPESTATUS - array that consists of exit codes of all the commmands in the pipe stream
 * $PPID - current shell's parent PID
 * $RANDOM - pseudo random integer [0 - 2^15]
 * $SECONDS - script execution time in seconds.

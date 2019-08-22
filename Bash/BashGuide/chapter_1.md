@@ -40,7 +40,7 @@ help [[
 # type commands returns the type of the argument whether its a shell keyword, builtin etc
 type for
 
-# whatis gives a short description about teh command passed as argument to it. `man -f <command>` does the same.
+# whatis gives a short description about the command passed as argument to it. `man -f <command>` does the same.
 whatis bash
 man -f bash
 

@@ -1,7 +1,7 @@
 # Chapter-4
 
 ## Executables and paths
-`$PATH` environment variable is used to find binaries to be executed. It is not recommended to add user scripts to `$PATH`. **If absolutely necessary, add the new path to the end of current list of paths.** Env vaiable paths are searched using values in `$PATH` from left to right. Usually binaries are executed in their own subshell.
+`$PATH` environment variable is used to find binaries to be executed. It is not recommended to add user scripts to `$PATH`. **If absolutely necessary, add the new path to the end of current list of paths.** Env variable paths are searched using values in `$PATH` from left to right. Usually binaries are executed in their own subshell.
 ```Bash
 # bash binary is found inside /bin which is part of $PATH variable
 bash -c "echo \"Hello world\""

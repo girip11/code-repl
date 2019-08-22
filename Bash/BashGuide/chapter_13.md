@@ -228,7 +228,7 @@ cat <<< "Print this to console"
 ```
 
 ## FIFO(named pipe)
-**F**irst **I**n **F**irst **O**ut. Create FIFO using `mkfifo` command. No contents stored on teh file system. Kernel passes the data internally.
+**F**irst **I**n **F**irst **O**ut. Create FIFO using `mkfifo` command. No contents stored on the file system. Kernel passes the data internally.
 
 * FIFO blocked by read operation, until a write operation it remains blocked and vice versa.
 
