@@ -27,7 +27,7 @@ def get_string_length(input_string):
   """
   returns the length of input_string
   """
-  return len(input_string) if (input_string != None  and type(input_string) == str) else 0
+  return len(input_string) if (isinstance(input, str) and input_string) else 0
 
 # function call
 print_hello_world()
@@ -61,11 +61,19 @@ def print_values(*args):
 
 print_values("Apple", "Mango", "Orange", 1, 10.5)
 
+# using splat to pass entry list entry as a parameter
+print_values(*["Apple", "Mango", "Orange"])
+
 # convention is to call the ** parameter as kwargs
 def print_key_value_pairs(**kwargs):
-  print(kwargs) # kwargs is a dict.
+  # kwargs is a dict.
+  for key in kwargs:
+    print("Key: {0!s}, value: {1!s}".format(key, kwargs[key]))
 
 print_key_value_pairs(one = 1, two = 2, three = 3)
+
+# splat dict
+print_key_value_pairs(**{"one": 1, "two": 2, "three": 3)
 ```
 
 **NOTE**: positional arguments comes before keyword arguments. Convention is to place parameters followed by parameters with default values, *args and then **kwargs.
@@ -75,7 +83,7 @@ print_key_value_pairs(one = 1, two = 2, three = 3)
 ## Docstring convention
 * First line - short description of the function
 * function parameters description
-* longer description of the function explaining algorithm used if anu
+* longer description of the function explaining algorithm used if any
 * return value description
 * example function call with optional arguments, keyword arguments.
 * information on side-effects, exceptions
@@ -85,7 +93,7 @@ print_key_value_pairs(one = 1, two = 2, three = 3)
 * variables created in main program's symbol table known as **global variables**. `globals()` builtin to view them.
 * variables created inside function stored in symbol table specific to that function.`locals()` builtin to view them.
 
-* all functions can access global variables. if local variables have same name as global variables, then the global variables cannot be used inside the function. known as **shadowed globals**
+* all functions can access global variables. if local variables have same name as global variables, then the global variables cannot be used inside the function, known as **shadowed globals**
 
 ## global statement
 If a function uses global variables, then we use **global** statement to declare the usage of those global variables.
