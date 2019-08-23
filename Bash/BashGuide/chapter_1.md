@@ -34,7 +34,7 @@ man --help
 # man command (short for manual) displays manual pages for the command issued as its argument.
 man cat
 
-# help displays man pages for bash builtins and keywords.
+# help displays man pages for **bash builtins and keywords.**
 help [[
 
 # type commands returns the type of the argument whether its a shell keyword, builtin etc

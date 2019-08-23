@@ -51,7 +51,7 @@ echo $count
 ```
 
 ## Read only variables
-Once set, the variable cannot be unset. Variable lifetime is till end of the shell process.
+**Once set, the variable cannot be unset**. Variable lifetime is till end of the shell process.
 ```Bash
 declare -r msg="Hello world"
 echo $msg
