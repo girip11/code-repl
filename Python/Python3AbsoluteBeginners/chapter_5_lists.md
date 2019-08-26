@@ -1,6 +1,15 @@
 # Sequences
 Python supports negative indexing of sequences. First index is 0 while last element index is counted in reverse as -1, last but previous element index -2 and so on.
 
+## Using python help
+```Python
+#  list all methods available in str
+dir(str)
+
+# provides documentation for the method
+help(str.upper)
+```
+
 ## String
 Strings are immutable.
 ```Python
@@ -21,8 +30,8 @@ planet.strip() # trims leading and trailing spaces.
 print(planet[0:3:2]) # prints Er
 
 # contains
-print("Ear" in planet) # returns true
-print("Ear" not in planet) # returns 
+print("Ear" in planet) # returns True
+print("Ear" not in planet) # returns False 
 
 # string concatenation
 print("foo" + "bar")
@@ -39,7 +48,7 @@ list(planet)
 tuple(planet)
 
 # list to string
-str(fruits_list) # adds [] to tha output string
+str(fruits_list) # adds [] to the output string
 
 # string length
 len(planet)
@@ -179,7 +188,7 @@ max(numbers)
 sorted(numbers)
 
 # reversing list inplace
-numbers.reverse
+numbers.reverse()
 
 # reverse to new list
 reversed(numbers) # returns an iterator
@@ -233,7 +242,7 @@ fruits_set1 - fruits_set2
 fruits_set2 - fruits_set1
 
 # intersection
-fruits_set1 |  fruits_set2
+fruits_set1 | fruits_set2
 
 # union
 fruits_set1 & fruits_set2
@@ -257,7 +266,7 @@ for key in details:
 if "name" in details:
   print(details["name"])
 else:
-  print("name attribute not available")
+  print("name entry not available")
 
 # get a default value from dictionary when key is not present
 gender = details.get("gender", "NotPresent")

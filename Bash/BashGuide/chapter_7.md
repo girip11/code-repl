@@ -41,9 +41,9 @@ cd scripts_dir || mkdir scripts_dir && cd scripts_dir
 ## Quoting
 Use string quoting whereever **word splitting using whitespace** can happen.
 
-* **''** - represents a string literal. No character has a special meaning inside single quotes.
+* **' '(single quotes)** - represents a string literal. No character has a special meaning inside single quotes.
 
-* **""** - represents string. parameter expansion, arithmetic expansion, command substitution are carried out. Can be thought of similar to **String interpolation** in programming languages
+* **" "(double quotes)** - represents string. parameter expansion, arithmetic expansion, command substitution are carried out. Can be thought of similar to **String interpolation** in programming languages
 
 * **\\** - escape character. 
 ```Bash
@@ -62,7 +62,7 @@ echo "The planet that I live in is: \"${my_planet}\""
 
 **<** - redirects standard input. (read contents of a file)
 
-**<<** - Here document. reads string until a delimited is specified.
+**<<** - Here document. reads string until a delimiter is specified.
 
 **<<<** - Here string. reads string that follows immediately
 
@@ -75,7 +75,7 @@ echo "The planet that I live in is: \"${my_planet}\""
 cd my_dir || {mkdir my_dir; cd my_dir;}
 ```
 
-**() command group** - commands within are executed in a separate subshell. subshell vairables are not visible to the parent shell. Executing many commands in subshell might slowdown the script execution.
+**() command group** - commands within are executed in a separate subshell. subshell variables are not visible to the parent shell. Executing many commands in subshell might slowdown the script execution.
 ```bash
 var1='foo'
 var2='bar'
@@ -101,7 +101,7 @@ echo $(($result == 7)) # in arithmetic expression parameter dereferencing($) is 
 
 ## let built-in
 **let** is a built-in command for math operations.
-Arithmetic expressions don't enforce strict spacing. 
+let builtin enforces strict spacing while **Arithmetic expression** doesn't.  
 ```Bash
 let z=5
 let z=$z+1
@@ -113,7 +113,7 @@ echo $z
 ```
 
 ## Floating point and complex arithmetic
-We need to use external utility like **bc**
+Bash understands only integers. We need to use external utility like **bc** for floating point arithmetic.
 
 
 ## read builtin

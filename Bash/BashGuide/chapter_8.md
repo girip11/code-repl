@@ -1,5 +1,5 @@
 # Chapetr-8: Globs
-Globs are not regular expressions. These are wildcards for searching files. Glob characters helps in pathname expansion.
+Globs(wildcards) are not regular expressions. These are wildcards for searching files. Glob characters helps in pathname expansion.
 If one of the below characters appear, then the word is considered as a pattern and is replaced with matching files sorted alphabetically.
 
 ## Glob characters

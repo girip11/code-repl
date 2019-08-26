@@ -112,6 +112,7 @@ class Parent:
 class Child1(Parent):
   def __init__(self, param1, param2, param2):
     # This is one way of calling parent constructor. Alternate way is calling user super() which is preferred over this way.
+    # this syntax is very useful in mutliple inheritance scenarios, where we have to call __init__ of two or more parents of the child class
     Parent.__init__(self, param1, param2)
     self.param3 = param3
 

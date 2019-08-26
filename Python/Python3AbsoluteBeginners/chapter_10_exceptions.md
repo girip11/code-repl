@@ -109,7 +109,7 @@ finally:
 try:
   1/0
 except Exception as e:
-  # raised exception's __cause__ contains teh caught exception
+  # raised exception's __cause__ contains the caught exception
   raise Exception("Cannot divide by zero") from e
 
 # implicit raising

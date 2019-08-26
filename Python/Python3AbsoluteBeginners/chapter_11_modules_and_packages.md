@@ -17,8 +17,9 @@ from random import *
 A module can be imported at any point in the code. But all import `from module_name import *` can only be imported in the main body of the program. Using this wildcard import inside a method cause syntax error.
 
 ```Python
+#  __import__ helps in dynamic import during runtime.
 import re as regex
-regex = __import__(re)
+regex = __import__('re')
 
 # info on __import__
 help(__import__)

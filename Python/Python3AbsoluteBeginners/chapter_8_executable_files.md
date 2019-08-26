@@ -18,7 +18,7 @@ Default is UTF-8 encoding.
 
 #! /usr/bin/python3
 ```
-Pythonic - programming appraoches idiomatic to python
+Pythonic - programming approaches idiomatic to python
 
 ## Python script structure
 More on style guide can be found in the references.
