@@ -1,6 +1,6 @@
 # Object Oriented Design
 
-**NOTE**: These notes will be useful if you have read he book atleast once.
+**NOTE**: These notes will be useful if you have read the book atleast once.
 
 Object - collection of data and its associated behaviors.
 

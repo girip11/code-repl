@@ -1,5 +1,5 @@
 # Objects in python
-**NOTE**: These notes will be useful if you have read he book atleast once.
+**NOTE**: These notes will be useful if you have read the book atleast once.
 
 ## Simple class
 Recommended indentation - 4 spaces.

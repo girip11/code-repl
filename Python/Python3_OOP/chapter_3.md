@@ -1,5 +1,5 @@
 # When objects are alike
-**NOTE**: These notes will be useful if you have read he book atleast once.
+**NOTE**: These notes will be useful if you have read the book atleast once.
 
 ## Basic inheritance
 * All python classes - subclass of **object**.
