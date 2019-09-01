@@ -1,11 +1,19 @@
-# Chapetr-8: Globs
-Globs(wildcards) are not regular expressions. These are wildcards for searching files. Glob characters helps in pathname expansion.
+# Chapter-8: Globs
+Globs(wildcards) are not regular expressions. These are wildcards for searching files. **Glob characters helps in pathname expansion.**
 If one of the below characters appear, then the word is considered as a pattern and is replaced with matching files sorted alphabetically.
 
+**NOTE**: globbing/pathname expansion doesnot work inside either single or double quotes.
+```Bash
+echo *.java
+echo '*.java'
+echo "*.java"
+```
+
+
 ## Glob characters
-* **?** - matches a single character (wildcard character)
-* **\*** - matches any number of characters (wildcard string)
-* **[]** - matches for a list of characters or ranges (wildcard list)
+* **?** - matches a single character against any value(wildcard character)
+* **\*** - matches any number of characters with any value(wildcard string)
+* **[]** - matches a single character for a list of values or ranges (wildcard list)
 
 ## **?** glob
 ```Bash
@@ -37,11 +45,12 @@ ls /usr/bin/[a-z]*
 ls /usr/bin/[^e-l]*
 
 # special characters like itself in the pattern [] requires escaping
-ls /usr/bin/*[\[]
+ls /usr/bin/*[\[\]]
+
 ```
 
 ## null globs
-when a glob doesnot match a filenames, glob matches itself (i.e) glob expands to itself. But if nullglob shell option is enabled, **the glob incase fo no match expands to null instead of itself.**
+when a glob doesnot match a filenames, glob matches itself (i.e) glob expands to itself. But if nullglob shell option is enabled, **the glob incase of no match expands to null instead of itself.**
 ```Bash
 for file in *.txt
 do
@@ -57,7 +66,7 @@ done
 **nullglob** can be disabled/unset using the shell option `shopt -u nullglob`
 
 ## dot glob
-if this shell option is set, bash includes the files startgin with **.** in the results of pathname expansion.
+If this shell option is set, bash includes the files starting with **.** in the results of pathname expansion.
 ```Bash
 # enabling dotglob
 shopt -s dotglob
@@ -77,14 +86,31 @@ shopt -u extglob
 ```
 
 Extended glob matching patterns
-* **?(list)** - matches zero or one occurence of the patterns
-* **\*(list)** - matches zero or many occurence of the patterns
-* **+(list)** - matches atleast one occurence of the patterns
-* **@(list)** - matches exactly one occurence of the patterns
-* **!(list)** - matches anything other than the patterns mentioned.
+* **?(list)** - matches zero or one occurence of the patterns in the same string
+* **\*(list)** - matches zero or many occurence of the patterns in the same string
+* **+(list)** - matches atleast one occurence of the patterns in the same string
+* **@(list)** - matches exactly one occurence of the patterns in the same string
+* **!(list)** - matches anything other than the patterns mentioned in the same string
+
+```Bash
+$ ls
+abbc  abc  ac
+$ echo a*(b)c
+abbc abc ac
+$ echo a+(b)c
+abbc abc
+$ echo a?(b)c
+abc ac
+$ echo a@(b)c
+abc
+
+# list all directories starting with lowercase alphabets and containing atleast one "l" in the string and ends with either "s" or "e"
+echo [[:lower:]]*+(l)*@(s|e)
+```
 
 ---
 
 ## References:
 * [Bash Guide by Joseph Deveau](https://www.amazon.in/BASH-Guide-Joseph-DeVeau-ebook/dp/B01F8AZ1LE/ref=sr_1_4?keywords=bash&qid=1564983319&s=digital-text&sr=1-4)
 * [nullglob](https://www.cyberciti.biz/faq/bash-shell-check-for-any-mp3-files-in-directory/)
+* [Extended globs](https://www.linuxjournal.com/content/bash-extended-globbing)

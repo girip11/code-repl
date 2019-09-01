@@ -19,7 +19,8 @@ function simple_function() {
 # calling the function
 simple_function
 ```
-Function definition must precede its call. Call to empty function also results in error. Function must have atleast 1 command.
+
+**Function definition must precede its call. Call to empty function also results in error. Function must have atleast 1 command.**
 
 Function call is equivalent to a command. Nesting of functions is possible.
 
@@ -46,7 +47,7 @@ say_hello "Roger Federer"
 
 Functions do not have access to the script parameters directly unless passed as parameters in the function call.
 
-Functions in bash does not return any value. returns just the exit code.
+Functions in bash does not return any value. Returns just the exit code.
 
 ```Bash
 function get_value() {
@@ -54,6 +55,15 @@ function get_value() {
 }
 get_value
 echo $? # this way we can return values.
+
+# way to return a string
+# doesnot work when the function has multiple echo statements
+function to_upper() {
+  echo ${1^^}
+}
+
+result=$(to_upper "hello")
+echo "$result"
 ```
 
 ---

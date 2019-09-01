@@ -61,7 +61,7 @@ fi
 ```
 
 ## Case
-searches in order, executes first matching pattern. **globs** can be used in **pattern matching**
+searches in order, executes first matching pattern. **globs**(wildcards and extended globs set using shell option) can be used in **pattern matching**.
 
 ```Bash
 # Syntax
@@ -79,31 +79,43 @@ esac
 ```
 
 ## Select
-Prompts user to make decision. executes in loop till break keyword.
+Uses `PS3` variable to print its prompt. Prompts user to make decision.User enters a number starting from 1 till the number of items in the values to be selected. Executes in loop till break keyword.
 ```Bash
 # Syntax
-PS3="Prompt title here"
-select variable in value1, value2.... valueN
+# PS3="Prompt title here"
+# select variable in value1, value2.... valueN
+# do
+#   # statements
+#   break
+# done
+
+PS3="Select the fruit you like: "
+fruits=("apple" "mango" "pineapple" "orange" "exit")
+select fruit in "${fruits[@]}"
 do
-  # statements
-  break
+  if [[ $fruit == "exit" ]]
+  then 
+    echo "Exiting..."
+    break
+  fi
+  echo "Favorite fruit is : $fruit"
 done
 ```
 
 ## Conditionals
-| condition | descriptions                                                                                |
-| --------- | ------------------------------------------------------------------------------------------- |
-| !         | Negates a test or exit status                                                               |
-| [ ]       | tests expression in brackets and returns true or false. shell builtin. consider it obselete |
-| [[]]      | tests expression in brackets and returns true or false. more flexibility than above test    |
+| condition | descriptions                                                                                                                                  |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| !         | Negates a test or exit status                                                                                                                 |
+| [ ]       | tests expression in brackets and returns true or false. shell builtin. consider it obselete. same as the **test** builtin. Offers portability |
+| [[]]      | tests expression in brackets and returns true or false. more flexibility than above tes. Affects portability since POSIX doesnot support this |
 
-## Differences between [] and [[]] 
-* within [], variables shoudl be quoted.
-* values should be escaped within []
-* [] uses **-a** for logical and and **-r** for logical or while [[]] can use && and || 
-* [[]] can perform pattern matching and regular expression matching.
+## Differences between \[ \] and \[\[ \]\] 
+* within \[ \], variables should be quoted.
+* values should be escaped within \[ \]
+* \[ \] uses **-a** for logical and and **-r** for logical or while \[\[ \]\] can use && and || 
+* \[\[ \]\] can perform pattern matching using **=** operator and regular expression matching using **=~** operator.
 
-**NOTE**: [] is a sh test. it is obsolete. Always use [[]] in bash scripting.
+**NOTE**: \[ \] is a sh test. it is obsolete. Always use \[\[ \]\] in bash scripting.
 
 ## Arithmetic tests
 comparison operators
@@ -122,14 +134,31 @@ comparison operators
 * **string1 != string2** - not equals
 * **string1 < string2** - lexicographic comparison
 * **string1 > string2** - lexicographic comparison
+Bash specific regex string comparison
+* **string1 =~ string_regex** - regex equals
+  ```Bash
+  msg="hello"
+
+  # ! negate the test espression result
+  if [[ ! -z $msg ]]
+  then
+    echo "message is not empty"
+  fi
+
+  # () group expressions, causing change in precedence.
+  if [[ ( cond1 && cond2 ) || cond3 ]]
+  then
+    # statements
+  fi
+  ````
 
 ## File tests
 Commonly used file tests are listed below. For more tests turn to the reference book.
 * **-e FILE** - true if file exists
-* **-f FILE** - true if exists and regualr file
+* **-f FILE** - true if exists and regular file
 * **-d FILE** - true if FILE exists and is a directory
 * **-p FILE** - true if FILE exists and named pipe file
-* **-S FILE** - true if FILE exsists and socket file
+* **-S FILE** - true if FILE exists and socket file
 * **-h FILE** - true is FILE exists and is symbolic link
 * **-O FILE** - true FILE exists and owned by currently logged in user (user whose context the BASH is executing)
 * **-G FILE** - true if exists and owned by group of bash user
@@ -141,18 +170,20 @@ Commonly used file tests are listed below. For more tests turn to the reference 
 * **FILE1 -ot FILE2** - older than
 
 ## Logical tests
+Only supported inside `[[]]`
 * **expr1 && expr2** - logical AND
 * **expr1 || expr2** - logical OR
 
 ## Pattern tests
+Only supported by `[[]]`
 * **string = pattern** or **string == pattern**- true if string matches pattern
 * **string =~ pattern** - true if string matches **pattern regex**.
 
 ### Character classes for pattern matching
 | class  | description               |
 | ------ | ------------------------- |
-| alnum  | [0-9A-Za-z]               |
-| alpha  | [A-Za-z]                  |
+| alnum  | alpha and digit           |
+| alpha  | lower and upper           |
 | ascii  | ASCII characters          |
 | blank  | space and tab             |
 | cntrl  | control characters        |
@@ -168,30 +199,43 @@ Commonly used file tests are listed below. For more tests turn to the reference 
 
 ```Bash
 # Syntax
-[:class:]
+# [[:class:]]
+msg="Hello"
+
+# check if every characters in the message is alphabet
+for ((i=0; i<=${#msg}; i++))
+do
+  if [[ ${msg:$i:1} == [[:alpha:]] ]]
+  then
+    echo "Current character is a alphabet"
+  fi
+done
 ```
 
 ## Miscellaneous
-* **-o OPT** - true if shell option is set
+`help test` gices notes on various tests available
+* **-o OPT** - true if shell option is set (option that was set using the **set builtin** and not using **shopt builtin**).
+
 * **-v VAR** - true if shell variable is set.
-
 ```Bash
-msg="hello"
-
-# ! negate the test espression result
-if [[ ! -z $msg ]]
+# Other options that can be set using set buitlin
+# `help set` for more information on options that can be set using the **set** shell buitlin.
+if [[ -o braceexpand ]]
 then
-  echo "message is not empty"
+  echo "braceexpand option is set"
 fi
 
-# () group expressions, causing change in precedence.
-if [[ ( cond1 && cond2 ) || cond3 ]]
+if [[ -v BASH_VERSION ]]
 then
-  # statements
+  echo "$BASH_VERSION"
 fi
 ```
+
 
 ---
 
 ## References:
 * [Bash Guide by Joseph Deveau](https://www.amazon.in/BASH-Guide-Joseph-DeVeau-ebook/dp/B01F8AZ1LE/ref=sr_1_4?keywords=bash&qid=1564983319&s=digital-text&sr=1-4)
+* [Arithmetic expressions with if](https://stackoverflow.com/questions/8304005/how-do-i-do-if-statement-arithmetic-in-bash)
+* [ Difference between \[ \] and \[\[ \]\]](https://stackoverflow.com/questions/3427872/whats-the-difference-between-and-in-bash)
+* [Character classes and bracket expressions](https://www.gnu.org/software/grep/manual/html_node/Character-Classes-and-Bracket-Expressions.html)

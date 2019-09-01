@@ -28,6 +28,13 @@ do
   # statements
 done
 
+# iterate through al characters of a string
+str="Hello"
+for ((i=0; i< ${#str}; i++))
+do
+  echo "${str:$i:1}"
+done
+
 # Syntax for looping through a list
 for item in list
 do
