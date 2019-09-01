@@ -15,7 +15,7 @@ These parameetrs can only be referenced but not modified. Contains metadata rela
 * **$\*** - all the positional parameters. If double quoted, results in a single string.
 * **$@** - all the positional parameters. If double quoted, results in a list of those parameters.
 * **$?** - exit code of most recently completed foreground command
-* **$!** - PID of the last completed background command
+* **$!** - PID of the mopst recently completed background command
 * **$$** - process ID of the current shell
 * **$_** - last argument of the last completed foreground command after expansion.
 * **$-** - shell options that are set
@@ -36,6 +36,23 @@ These parameetrs can only be referenced but not modified. Contains metadata rela
 * **\${parameter:=value}** or **\${parameter=value}**- sets default value if the parameter is not set.
 * **\${parameter:+value}** or **\${parameter+value}** - substitute value for parameter if parameter is set otherwise substitute nothing.
 * **\${parameter:-value}** or **\${parameter-value}** - substitute value when parameter is not set.
+
+```Bash
+echo ${msg="Hello"}
+
+# prints Hello
+echo "$msg"
+
+# set msg to nothing
+msg=
+echo ${msg="Hi"}
+# prints nothing
+echo "$msg"
+
+# To consider null value variables to be unset use :
+echo ${msg:="Hi"}
+echo ${msg}
+```
 
 ## Substring removal
 pattern can be made of simple globs or extended globs

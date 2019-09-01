@@ -10,8 +10,27 @@
 ## Shell variables
 shell variables are local to shell while environment variables are system wide.
 
-## Environment variables
-commonly used ones are listed below. For exhaustive list refer the book.
+## Environment variables.
+To list all environment variables in a shell use `printenv` command. (`man printenv`).
+
+```Bash
+# Prints all environment variables
+printenv
+env
+
+# List all SHELL  variables
+# =================================
+declare -p
+
+# exported variables
+declare -px
+
+# To list the shell variables
+# In posix mode only shell variables are listed
+(set -o posix; set) | less
+```
+
+Commonly used ones are listed below. For exhaustive list refer the book.
 | Variable | Description                          |
 | -------- | ------------------------------------ |
 | HOME     | current user's home directory        |

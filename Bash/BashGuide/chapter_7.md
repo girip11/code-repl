@@ -13,7 +13,7 @@
 
 **;** - statement separator. multiple commands in the same line are separated by **;**
 
-**$$** - expands to the PID of the current shell
+**$$** - expands to the PID of the current shell. This is different from `$BASHPID`. In cases where subshells are spawned(piping), `$$` contains PID of parent process, while `$BASHPID` alwyas contains the PID of the current bash shell it is executing in.
 
 ```bash
 # run editor in background
@@ -66,11 +66,15 @@ echo "The planet that I live in is: \"${my_planet}\""
 
 **<<<** - Here string. reads string that follows immediately
 
-**|** - redirects stdout of a command to stdin of another command.
+**|** - redirects stdout of a command to stdin of another command. Each command/command group is a pipe is executed in its own subshell
+```Bash
+echo $BASHPID
+{ echo $BASHPID; echo $BASHPID > pid1.txt; } | echo $BASHPID
+```
 
 
 ## Groups
-**{} Inline group**  - commands within braces are tread as single command. **Final command must be terminated with semicolon**.
+**{} Inline group**  - commands within braces are tread as single command. Space should be given between the  breaces and commands.**Final command must be terminated with semicolon**. Commands executed within current shell's context
 ```bash
 cd my_dir || {mkdir my_dir; cd my_dir;}
 ```
@@ -88,7 +92,7 @@ greeting="Hey"
 echo "$greeting, $var1 and $var2"
 ```
 
-**(()) arithmetic expression** - enclosing arithmetic expressions. Bash knows only integer math. Arithmetic expressions when used for condition test **returns 0 on true and 1 on false.**
+**(()) arithmetic expression** - enclosing arithmetic expressions. Bash knows only integer math. Arithmetic expressions when used for condition test **returns 1 on true and 0 on false.**
 ```bash
 x=1;y=2;z=3;
 echo $((x + y * z))  # arithmetic expansion
@@ -118,7 +122,10 @@ Bash understands only integers. We need to use external utility like **bc** for 
 
 ## read builtin
 Reads a line of text from standard input. **newline** is considered as the end of line. But it can be changed using **-d** option. After reading the line, read performs word splitting as per IFS (Internal Field Separators). Value read is assigned to the variable used in the command. If no variable is used, the value is stored in the variable called **REPLY**. 
-**read** returns non zero exit code(failure) when EOF (Ctrl + D) is encountered
+**read** returns non zero exit code(failure) when EOF (Ctrl + D) is encountered.
+
+`help read` for more information on read builtin.
+
 Some of the important options are
 
 * **-a** - store read words in to indexed array

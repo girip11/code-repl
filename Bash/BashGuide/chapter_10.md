@@ -36,8 +36,8 @@ echo {,1}{a..c} # outputs a b c 1a 1b 1c
 # expand string with multiple prefixes
 echo {a..z}hello
 # above can be used with wildcard characters to expand to pathnames
-echo {/etc/*,/lib}/*.so*
-for file in {/etc/*,/lib}/*.so*
+echo {/etc,/lib}/*.so*
+for file in {/etc,/lib}/*.so*
 do
 echo $file
 done
@@ -56,6 +56,9 @@ echo $(whoami)
 # executed in a subshell and the result user:xyz
 # is returned and after replacement the statement looks like echo "user:xyz"
 echo "$(echo "user:$(whoami)")"
+
+# Inner echo prints the PID of the subshell and the BASHPID in the outer echo prints the PID of the current shell
+echo $(echo $BASHPID) $BASHPID
 ```
 
 ---
