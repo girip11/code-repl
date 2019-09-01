@@ -229,7 +229,7 @@ if not stack.empty()):
 tuples stored in this queue. First element in tuple is the priority and the second is the data. implemented using **heap** data structure (heapq module).
 
 * `get()` - blocks if queue is empty
-* `puts()` - blocks if queue is full
+* `put()` - blocks if queue is full
 
 ---
 
