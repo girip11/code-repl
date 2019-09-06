@@ -9,7 +9,7 @@
 | initial   | restore to initial value                |
 
 ## Margin collapsing
-margins touching vertically collapse, but wont collapse when touching horizontally. In vertical overlapping, `max(bottom_margin, top_margin)` decides the total margin between the elements.
+**margins touching vertically collapse, but wont collapse when touching horizontally**. In vertical overlapping, `max(bottom_margin, top_margin)` decides the total margin between the elements.
 ```CSS
 /* bottom margin of first div will collapse with the top margin of the adjacent second div making both the margins occupy 10px combined instead of 10px each */
 div {

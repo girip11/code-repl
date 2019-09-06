@@ -1,6 +1,6 @@
 # Padding
 
-padding -space between content and border. Negative values not allowed.
+padding -space between content and border. **Negative values not allowed.**
 
 ## Padding shorthand
 `padding: <top> <right> <bottom> <left>`. Start from top and move clockwise.

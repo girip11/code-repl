@@ -14,7 +14,7 @@ Some CSS properties can take multiple values. Ex: **text-shadow**
 
 ```CSS
 /* property list syntax*/
-propert-name: value1, value2;
+property-name: value1, value2;
 
 /* above can also be formatted as */
 property-name:
@@ -32,7 +32,7 @@ div, p {
 /*  below rule applies to
 * all <p> elements
 * all elements with class blue
-* all span elements taht are direct child of div*/
+* all span elements that are direct child of div*/
 p, .blue, div > span {
   color: blue;
 }
