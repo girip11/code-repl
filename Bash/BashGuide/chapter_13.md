@@ -277,6 +277,7 @@ echo "${PIPESTATUS[@]}"
 Allows to pipe stdout of multiple commands to another command. 
 ```Bash
 # syntax
+# no space between > and ()
 command <(list)
 command >(list)
 
@@ -295,9 +296,9 @@ In process substitution, bash handles the FIFO files.
 
 ```Bash
 # in the output, observe the file descriptor created and used by bash to execute this command.
-wc -l < (cat planets.txt)
+wc -l <(cat planets.txt)
 
-wc -l < (grep -i "ar" planets.txt)
+wc -l <(grep -i "ar" planets.txt)
 ```
 
 Redirecting stdout to one command while redirecting stderr to another command using process substitution is possible

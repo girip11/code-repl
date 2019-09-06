@@ -106,8 +106,8 @@ done
 | condition | descriptions                                                                                                                                  |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | !         | Negates a test or exit status                                                                                                                 |
-| [ ]       | tests expression in brackets and returns true or false. shell builtin. consider it obselete. same as the **test** builtin. Offers portability |
-| [[]]      | tests expression in brackets and returns true or false. more flexibility than above tes. Affects portability since POSIX doesnot support this |
+| \[ \]     | tests expression in brackets and returns true or false. shell builtin. consider it obselete. same as the **test** builtin. Offers portability |
+| \[\[\]\]  | tests expression in brackets and returns true or false. more flexibility than above tes. Affects portability since POSIX doesnot support this |
 
 ## Differences between \[ \] and \[\[ \]\] 
 * within \[ \], variables should be quoted.
