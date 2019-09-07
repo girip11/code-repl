@@ -19,6 +19,11 @@ echo "SHELL=/bin/bash exec /bin/bash --login" >> ~/.profile
 # add the below line to any bash script to
 # enable the verbose debugging mode.
 set -xv
+
+# turning of the debugging mode
+set +xv
+
+# help set or set --help to know more about the various shell options available.
 ```
 
 ## Shell prompts

@@ -51,8 +51,8 @@ html {
   box-sizing: border-box;
 }
 
-/* having box model assigned this way, helps overwrite easily of specific elements */
-*, *:before, *:after {
+/* Below assignment targets all HTML elements with *, all pseudo elements created before and after with *::before and *:: after. */
+*, *::before, *::after {
   box-sizing: inherit;
 }
 ```
@@ -61,3 +61,6 @@ html {
 
 ## References:
 * [CSS notes for professionals](https://books.goalkicker.com/CSSBook/)
+* [Box sizing including pseudo elements](https://stackoverflow.com/questions/31317238/why-use-selector-in-combination-with-before-and-after)
+* [Before pseudo element](https://developer.mozilla.org/en-US/docs/Web/CSS/::before)
+* [After pseudo element](https://developer.mozilla.org/en-US/docs/Web/CSS/::after)

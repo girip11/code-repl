@@ -14,16 +14,16 @@
 
 ## Attribute selectors
 attribute value can be enclosed in either single or double quotes.
-| selector       | description                                      |
-| -------------- | ------------------------------------------------ |
-| [attr]         | element with attribuet **attr**                  |
-| [attr='val']   | attribute value matches "val"                    |
-| [attr='val'i]  | value equals ignorecase                          |
-| [attr~='val']  | "val" contained in values list                   |
-| [attr^='val']  | attribute starts with "val"                      |
-| [attr$='val']  | attribute ends with "val"                        |
-| [attr*='val']  | value string contains "val"                      |
-| [attr\|='val'] | value equals or startswith "val" followed by "-" |
+| selector         | description                                      |
+| ---------------- | ------------------------------------------------ |
+| \[attr\]         | element with attribuet **attr**                  |
+| \[attr='val'\]   | attribute value matches "val"                    |
+| \[attr='val'i\]  | value equals ignorecase                          |
+| \[attr~='val'\]  | "val" contained in values list                   |
+| \[attr^='val'\]  | attribute starts with "val"                      |
+| \[attr$='val'\]  | attribute ends with "val"                        |
+| \[attr*='val'\]  | value string contains "val"                      |
+| \[attr\|='val'\] | value equals or startswith "val" followed by "-" |
 
 ```CSS
 /*  applies to all div elements with data-color attribute */
@@ -35,10 +35,38 @@ div[data-color] {
 ## Combinators
 | selector   | description                                                |
 | ---------- | ---------------------------------------------------------- |
-| div span   | descendant selelctor(not direct child)                     |
+| div span   | descendant selector(not direct child)                      |
 | div > span | child selector                                             |
 | a ~ span   | general sibling selector (span sibling after a)            |
 | a + span   | Adjacent sibling selector (span immediate sibling after a) |
+
+## Class name selectors
+Selects all elements based on **class name**. To select elements with match on multiple classes, the class names should not be space separated in the selectors.
+
+```CSS
+/* selects elements with both classes. order agnostic*/
+.important.warning{
+  /* style */
+}
+
+/* matches parent with .important and its descendants with .warning */
+.important .warning {
+  /* style */
+}
+```
+
+## Selecting using ID attribute
+```CSS
+/* this method has high specificity */
+#element-id {
+
+}
+
+/* this method has low specificity */
+[id='element-id']{
+
+}
+```
 
 ## pseudo classes
 Example style based on html element state(checkbox checked, button hover etc)
@@ -74,39 +102,11 @@ selector:pseudo-class {
 :nth-last-child(3)
 ```
 
-## Class name selectors
-Selects all elements based on **class name**. To select elements with match on multiple classes, the class names should not be space separated in the selectors.
-
-```CSS
-/* selects elements with both classes. order agnostic*/
-.important.warning{
-  /* style */
-}
-
-/* matches parent with .important and child with .warning */
-.important .warning {
-  /* style */
-}
-```
-
-## Selecting using ID attribute
-```CSS
-/* this method has high specificity */
-#element-id {
-
-}
-
-/* this method has low specificity */
-[id='element-id']{
-
-}
-```
-
 ## :only-child selector
-selects the any element which is the only child of its parent.
+selects those elements that match the selector which is the only child of its parent.
 
 ```CSS
-/* only one <p> element under each parent will match this rule*/
+/* Applied to those <p> elements which are the only child of their parents. There should be no siblings to these <p> elements*/
 p:only-child{
   /* style */
 }
@@ -134,6 +134,8 @@ input:in-range {
 ```
 
 ## :not pseudo class
+> The negation pseudo-class, `:not(X)`, is a functional  notation taking a **simple selector** (excluding the negation pseudo-class itself) as an argument. A simple selector is either a type selector, universal selector, attribute selector, class selector, ID selector, or pseudo-class.
+
 ```CSS
 /* Syntax */
 /* Supports comma separated selectors within ()*/
@@ -148,7 +150,7 @@ selector:not([attr]):not(.class_name){
 
 /* Example */
 /* applies to all input elements that are not disabled and doesnot contain the class "important" */
-input.:not([disabled]):not(.important) {
+input:not([disabled]):not(.important) {
 /* style */
 }
 ```

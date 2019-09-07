@@ -40,6 +40,8 @@ Commonly used ones are listed below. For exhaustive list refer the book.
 | SHELL    | path to current user's shell program |
 | USER     | currently logged in user             |
 
+> If a change is made to a shell variable, it must be explicitly "exported" to the corresponding environment variable in order for any forked subprocesses to see the change. Recall that shell variables are local to the shell in which they were defined.
+
 * Full listing of the environment variable is obtained using the `printenv` command.
 * `export` - add or change environment variable.
 * `unset` - remove the environment variable.
@@ -59,7 +61,7 @@ unset SHELL
 export SHELL="/bin/bash"
 ```
 
-Environment variables of running programs cannot be changed. Changes made in current shell will reflect in any of its child processes only.
+**Environment variables of running programs cannot be changed. Changes made in current shell will reflect in any of its child processes only.**
 
 Changes made to environment variables are valid only during the lifetime of the shell program unless persisted in one of the below files.
 * ~/.pam_environment
@@ -137,10 +139,10 @@ exec 3<>file
 echo "hello world" >file
 
 # reading from file
-read -u 2 line
+read -u 3 line
 
 # closing the file
-exec 5>&-
+exec 3>&-
 ```
 
 ## File redirection
@@ -189,7 +191,7 @@ Redirect stderr to stdout using **FD1>&FD2**. File descriptors are read from **l
 
 ```Bash
 # common use case. ignore stdout and stderr
-./my_script.sh 2>&1 > /dev/null
+./my_script.sh > /dev/null 2>&1 
 
 # shorthand notation for above command
 ./my_script.sh &>/dev/null
@@ -275,6 +277,7 @@ echo "${PIPESTATUS[@]}"
 Allows to pipe stdout of multiple commands to another command. 
 ```Bash
 # syntax
+# no space between > and ()
 command <(list)
 command >(list)
 
@@ -293,9 +296,9 @@ In process substitution, bash handles the FIFO files.
 
 ```Bash
 # in the output, observe the file descriptor created and used by bash to execute this command.
-wc -l < (cat planets.txt)
+wc -l <(cat planets.txt)
 
-wc -l < (grep -i "ar" planets.txt)
+wc -l <(grep -i "ar" planets.txt)
 ```
 
 Redirecting stdout to one command while redirecting stderr to another command using process substitution is possible

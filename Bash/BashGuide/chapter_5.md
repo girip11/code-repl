@@ -42,7 +42,9 @@ echo "$movie_name" # retains spacing in the movie_name
 declare -i count=1
 count+=100
 echo $count
-unset count
+unset count 
+# or unset -v count
+
 
 #NOTE: below statement assigns a string of value 100 to the variable. + performs string concat.
 count=100
@@ -60,6 +62,7 @@ echo $msg
 ```
 
 ## Commonly used Shell variables
+To list the shell variables use the command `declare -p`
 * $BASH
 * $BASH_VERSION
 * $HOME - current logged in user home directory path

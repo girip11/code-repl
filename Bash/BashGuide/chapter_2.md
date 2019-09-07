@@ -1,7 +1,7 @@
 # Chapter-2
 
 ## Editors
-Editors recommended for bash scripting are one of the following
+Editors recommended for bash scripting are 
 * emacs
 * vim
 * nano

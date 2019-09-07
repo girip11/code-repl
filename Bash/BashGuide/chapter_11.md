@@ -106,8 +106,8 @@ done
 | condition | descriptions                                                                                                                                  |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | !         | Negates a test or exit status                                                                                                                 |
-| [ ]       | tests expression in brackets and returns true or false. shell builtin. consider it obselete. same as the **test** builtin. Offers portability |
-| [[]]      | tests expression in brackets and returns true or false. more flexibility than above tes. Affects portability since POSIX doesnot support this |
+| \[ \]     | tests expression in brackets and returns true or false. shell builtin. consider it obselete. same as the **test** builtin. Offers portability |
+| \[\[\]\]  | tests expression in brackets and returns true or false. more flexibility than above tes. Affects portability since POSIX doesnot support this |
 
 ## Differences between \[ \] and \[\[ \]\] 
 * within \[ \], variables should be quoted.
@@ -116,6 +116,7 @@ done
 * \[\[ \]\] can perform pattern matching using **=** operator and regular expression matching using **=~** operator.
 
 **NOTE**: \[ \] is a sh test. it is obsolete. Always use \[\[ \]\] in bash scripting.
+`help test` gives notes on various tests available
 
 ## Arithmetic tests
 comparison operators
@@ -213,7 +214,6 @@ done
 ```
 
 ## Miscellaneous
-`help test` gices notes on various tests available
 * **-o OPT** - true if shell option is set (option that was set using the **set builtin** and not using **shopt builtin**).
 
 * **-v VAR** - true if shell variable is set.
