@@ -176,6 +176,56 @@ class Person {
 }
 ```
 
+## Subclassing with extends
+Classes can extend from traditional function based (constructor function) classes.
+
+```Javascript
+function Person(name, age, gender) {
+  this.name = name;
+  this.age = age;
+  this.gender = gender;
+}
+
+Person.prototype.greeting = function() {
+  return `Hi, I am ${this.name}`;
+}
+
+class Teacher extends Person {
+  constructor(name, age, gender, subject) {
+    super(name, age, gender);
+    this.subject = subject;
+  }
+
+  greeting() {
+    return `Hi, I am ${this.name}. I teach ${this.subject}`;
+  }
+}
+```
+
+Classes cannot extend regular objects. To make the class extend from regular objects, we need to set the child class's prototype to the object using `Object.setPrototypeOf`.
+
+```Javascript
+const Person = {
+  greeting: function() {
+    return `Hi I am ${this.name}`;
+  }
+};
+
+class Teacher {
+  constructor(name, age, gender, subject) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this.subject = subject;
+  }
+
+}
+
+Object.setPrototypeOf(Teacher.prototype, Person);
+
+let t = new Teacher('John', 30, 'Male', 'Science');
+console.log(t.greeting());
+```
 
 ---
 
