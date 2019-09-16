@@ -1,0 +1,12 @@
+{% extends "layout.html.j2" %}
+{% block title %} Index {% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+  <p>This is content from template page</p>
+    {# any block from parent can be used in child#}
+    {% block footer %}
+      {{ super() }}
+    {% endblock %}
+{% endblock %}
