@@ -3,7 +3,7 @@ Type and see how the code snippets render  with **codepen.io**.
 
 ## Div section
 **&lt;div&gt;** is a generic container for flow content. Being a block element, it can hold both block and inline elements. It is generally used to group elements together in a container and apply custom styling using the **class** and **id** attributes. 
-Think of this element like the default case in switch statement in programming languages. If the content doesnot semantically fit in to any other html element(article, section, nav) then teh content is placed inside div.
+Think of this element like the default case in switch statement in programming languages. If the content doesnot semantically fit in to any other html element(article, section, nav) then the content is placed inside div.
 
 ## Description lists
 Description lists are used to markup items and their associated descriptions. Can be used to markup
@@ -29,9 +29,11 @@ URL of the source (if the content is obtained from web) is mentioned in the **ci
 **Cite** HTML element can also be used to mention the citations. Helps in citing the author or source of the quotations. 
 ```HTML
 <blockquote cite="https://en.wikipedia.org/wiki/HTML">
-<p>Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser.<p>
-<!-- Its a good practice to turn website to links -->
-<a href="https://en.wikipedia.org/wiki/HTML"><cite>- Wikipedia</cite></a>
+  <p>Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser.<p>
+  <!-- Its a good practice to turn website to links -->
+  <cite>
+    - <a href="https://en.wikipedia.org/wiki/HTML">Wikipedia</a>
+  </cite>
 </blockquote>
 ```
 
@@ -41,7 +43,7 @@ To quote a content inline, **&lt;q&gt;** tag is used. Intended for short quotati
 <p>According to <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">wikipedia</a> Cascading Style Sheets (<abbr>CSS</abbr>) is a <q cite="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">style sheet language used for describing the presentation of a document written in a markup language like HTML</q></p>
 ```
 
-**NOTE**: While content in the **cite** attribute is useful to screen readers, they arent displayed on the browser. **Cite** HTML element is used when the content needs to be rendered in the browser. If teh citation is from website,  its a good practice to mention the website name in the **cite** element and enclose it inside **&lt;a&gt;** tag with the url to the webpage containing the quotation.
+**NOTE**: While content in the **cite** attribute is useful to screen readers, they aren't displayed on the browser. **`<cite>`** HTML element is used when the content needs to be rendered in the browser. If the citation is from website,  its a good practice to mention the website name in the **cite** element and enclose it inside **&lt;a&gt;** tag with the url to the webpage containing the quotation.
 
 
 ## Abbreviations
@@ -131,7 +133,7 @@ Text that are no longer relevant or deprecated are enclosed inside **&lt;s&gt;**
 ```
 
 ## Marking up text editing and differences
-To markup a document, highlighting what was inserted and deleted between the twp versions of the document, **&lt;ins&gt;** and **&lt;del&gt;** methods are used.
+To markup a document, highlighting what was inserted and deleted between the two versions of the document, **&lt;ins&gt;** and **&lt;del&gt;** methods are used.
 ```HTML
 <p>
 There is <del>nothing</del> <ins>no code</ins> either good or bad, but <del>thinking</del> <ins>running it</ins> makes it so.

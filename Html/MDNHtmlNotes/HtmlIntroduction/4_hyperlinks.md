@@ -31,7 +31,7 @@ Assign **id** attribute to the HTML element to which the link should point to. C
 * Relative URL refers the document path relative to the current document from which its referenced. This makes relative URLs to be used with caution as moving the html document in the file system may invalidate the relative URLS in that document.
 
 ## Best practices
-* Link text is **should describe** about the link unlikein this example `<a href="https://firefox.com/">Click here</a>`
+* Link text is **should describe** about the link **unlike** in this example `<a href="https://firefox.com/">Click here</a>`
 
 * Link text should not contain the URL itself. Such links lose accessibility.
 

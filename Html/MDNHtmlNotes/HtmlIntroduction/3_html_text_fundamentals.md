@@ -6,7 +6,7 @@ All the content resides inside the **&lt;body&gt;** element. It is the content s
 * Various header elements are used to represent the structural hierarchy. Usually a page contains only one **&lt;h1&gt;** tag. Good practice is to have h2 contain h3 rather than the other way. For instance use h2 for chapter titles and h3 for sections in the chapter and not viceversa.
 * General practice is to keep the heading levels to 3 per page.
 * Heading play an important role in indexing webpages by search engines.
-* Headings helps give the document outline when presented through **screen reader**. **Makes the HTML page more accesible.**
+* Headings helps give the document outline when presented through **screen reader**. **Makes the HTML page more accessible.**
   ```HTML
   <!DOCTYPE html>
   <html lang="en-US">
