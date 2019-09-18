@@ -14,6 +14,7 @@
 		"html.format.wrapAttributes": "aligned-multiple",
 		"[html]": {
 			"editor.foldingStrategy": "indentation"
-		}
+    },
+    "liveServer.settings.port": 5501
 	}
 }
