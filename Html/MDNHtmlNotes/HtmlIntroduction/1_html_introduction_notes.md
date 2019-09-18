@@ -34,7 +34,7 @@ HTML element can either be a **block** element or **inline** element.
 * HTML elements without content does not require closing tags. Such elements are referred to as **empty elements**. Example of empty elements are img, meta, link etc
 
 ## Attributes
-* Html elements can have attributes which can serve a variety of purposes (Styling, storing data etc). Some of the attributes are applicable to all Html elements and are hence called [**global attributes**](../html_global_attributes.md).
+* Html elements can have attributes which can serve a variety of purposes (Styling, storing data etc). Some of the attributes are applicable to all Html elements and are hence called [**global attributes**](../../html_global_attributes.md).
   ```HTML
   <!-- Attributes definition -->
   <!-- Multiple attributes are space separated -->
@@ -67,7 +67,7 @@ HTML element can either be a **block** element or **inline** element.
 <!-- DOCTYPE can be html or 5 which stands for HTML5 -->
 <!DOCTYPE html>
 <html>
-    <!-- Head tag contains metadata of teh HTML document -->
+    <!-- Head tag contains metadata of the HTML document -->
   <head>
     <meta charset="utf-8">
     <meta name="author" content="Girish">
@@ -97,11 +97,11 @@ HTML element can either be a **block** element or **inline** element.
 * Characters <, >, ", ' and & are special characters in HTML and are part of HTML syntax. To incorporate these characters in content or in attribute values we need to escape these characters. These escaped representation is referred to as **character references**.
   | Character | Character |
   | --------- | --------- |
-  | <         | &lt;      |
-  | >         | &gt;      |
-  | "         | &quot;    |
-  | '         | &apos;    |
-  | &         | &amp;     |
+  | <         | `&lt;`    |
+  | >         | `&gt;`    |
+  | "         | `&quot;`  |
+  | '         | `&apos;`  |
+  | &         | `&amp;`   |
 
 ---
 

@@ -100,7 +100,7 @@ if __name__ == "__main__":
       print(arg)
 ```
 
-**Ask forgiveness ratehr than permission**
+**Ask forgiveness rather than permission**
 Exception object can be used to pass information.
 
 ---

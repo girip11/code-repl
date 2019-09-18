@@ -66,7 +66,7 @@ Similar to **&lt;video&gt;**, this element also supports multiple audio file for
 ```
 
 ## Video tracks
-**&lt;track&gt;** element can contain teh track of the video. This element has mainly **src**, **kind** and **srclang** attributes. **kind** attribute can have the following values **subtitles, captions and descriptions**. **src** contains the url to VTT transcript file which follows WebVTT format. **srclang** contains the track transcript language.
+**&lt;track&gt;** element can contain the track of the video. This element has mainly **src**, **kind** and **srclang** attributes. **kind** attribute can have the following values **subtitles, captions and descriptions**. **src** contains the url to VTT transcript file which follows WebVTT format. **srclang** contains the track transcript language.
 ```HTML
 <video controls muted>
 <!-- <source> is an empty HTML element. type attribute is optional, but helps the browser decide faster which video is playable, otherwise browser has to figure out by playing different formats-->

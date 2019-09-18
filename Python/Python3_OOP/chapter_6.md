@@ -89,7 +89,7 @@ for k,v in fruits_count_dict.items():
 * To represent a table like structure, where each key value represents a column in the table. Advantage over named tuple in this case is that dictionary is mutable.
 
 ## defaultdict
-function is invoked whenever a key accessed is not in teh dictionary.
+function is invoked whenever a key accessed is not in the dictionary.
 ```Python
 from collections import defaultdict
 # usinf defaultdict(function) we can assign default values to keys not in the dictionary
