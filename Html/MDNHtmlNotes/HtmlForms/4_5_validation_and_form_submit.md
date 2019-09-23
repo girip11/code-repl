@@ -21,7 +21,7 @@
 * form submit button click
 * send using `XMLHttpRequest` when form's button clicked.
 
-## [Sending form with files](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data)
+## [Sending form with files](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data#A_special_case_sending_files)
 Form should have the **enctype** attribute with value **multipart/form-data**, if the form contains any input widget of type **file**
 
 ---
