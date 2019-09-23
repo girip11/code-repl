@@ -7,6 +7,8 @@ in px, em or any other valid CSS measurements
 Text color. Value can be specified using color name, hex code, rgb or hsl.
 
 ## Text alignment and direction
+**This property can be used to align text, inline and inline block elements in a parent container.**
+
 * start - same as left if screen direction is from left to right else similar to right.
 * end - same as right if screen direction is from left to right else similar to left.
 * left - left align
