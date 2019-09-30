@@ -1,9 +1,10 @@
 # Arrays
 
 ## Creation
+
 Array can contain collection of items of any type.
 
-```Javascript
+```javascript
 let cricketTeams = ["India", "Australia", "England", "NewZealand", "WestIndies", "SriLanka", "Pakistan", "SouthAfrica" "Bangladesh", "Zimbabwe"]
 
 console.log(cricketTeams[0]);
@@ -37,13 +38,15 @@ cricketTeams.unshift("India")
 ```
 
 ## Multidimensional Array
-```Javascript
+
+```javascript
 let multiDimArray = [[1,2,3], [4,5,6]]
 console.log(multiDimArray[0][0]);
 ```
 
 ## Iterating through arrays
-```Javascript
+
+```javascript
 let arr = [1, 2, 3, 4];
 
 for(let i = 0; i < arr.length; i++) {
@@ -58,5 +61,6 @@ arr.forEach(function(arrItem) {
 
 ---
 
-## References:
+## References
+
 * [Arrays in javascript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Arrays)

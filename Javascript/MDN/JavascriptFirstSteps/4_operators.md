@@ -1,6 +1,7 @@
 # Basic Math In Javascript
 
 ## Arithmetic operators
+
 | Operator | Purpose           |
 | -------- | ----------------- |
 | +        | Addition          |
@@ -13,16 +14,19 @@
 Operator precedence - PEDMAS
 
 ## Increment and decrement
+
 * `++` - pre and post increment
 * `--` - pre and post decrement
 
 ## Assignment operators
+
 | operator | purpose             |
 | -------- | ------------------- |
 | +=       | add and assign      |
 | -=       | subtract and assign |
 | *=       | multiply and assign |
 | /=       | divide and assign   |
+
 ```Javascript
 let num = 100;
 num += 20
@@ -30,6 +34,7 @@ console.log(num);
 ```
 
 ## Comparison operators
+
 | operator | purpose                                |
 | -------- | -------------------------------------- |
 | ===      | value and type equals. Strict equality |
@@ -45,5 +50,6 @@ strict equality check is recommended.
 
 ---
 
-## References:
+## References
+
 * [MDN: Basic Math In Javascript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Math)

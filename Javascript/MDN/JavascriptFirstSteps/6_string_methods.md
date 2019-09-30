@@ -1,10 +1,10 @@
 # Useful String Methods
 
-```Javascript
+```javascript
 let companyName = "Motorola";
 
 // length of the string.
-companyName.length;
+console.log(companyName.length);
 
 //  accessing individual characters in the string
 for (let i = 0; i < companyName.length; i++) {
@@ -27,5 +27,6 @@ companyName.replace("Motor", "");
 
 ---
 
-## References:
+## References
+
 * [Useful String Methods in javascript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Useful_string_methods)
