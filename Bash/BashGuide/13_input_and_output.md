@@ -4,13 +4,16 @@
 **Output** - files, streams, pipes, shell and environment variables.
 
 ## Positional and special parameters
+
 * **\$1** - positional
 * **\$?** - special parameters.
 
 ## Shell variables
+
 shell variables are local to shell while environment variables are system wide.
 
-## Environment variables.
+## Environment variables
+
 To list all environment variables in a shell use `printenv` command. (`man printenv`).
 
 ```Bash
@@ -64,6 +67,7 @@ export SHELL="/bin/bash"
 **Environment variables of running programs cannot be changed. Changes made in current shell will reflect in any of its child processes only.**
 
 Changes made to environment variables are valid only during the lifetime of the shell program unless persisted in one of the below files.
+
 * ~/.pam_environment
 * ~/.bashrc
 * ~/.profile
@@ -72,6 +76,7 @@ Changes made to environment variables are valid only during the lifetime of the 
 Current user login and logout to reflect changes in evnironment variable.
 
 * In scripts use **source** or **exec** to reread/refresh environment changes.
+
 ```Bash
 source <path to script containing environment variables>
 
@@ -81,11 +86,13 @@ exec bash
 ```
 
 ## Standard streams
+
 * stdin
 * stdout
 * stderr
 
 ## File descriptors (FD)
+
 FD - access file, stream ,pipe, socket, device, network interface etc.
 
 * abstraction between the hardware device and the device file created by kernel(/dev directory).
@@ -97,6 +104,7 @@ FD - access file, stream ,pipe, socket, device, network interface etc.
 | stderr | console  | 2   |
 
 ## Reading using custom file descriptors
+
 ```Bash
 # open a file for reading using custom file descriptors
 exec 3< file
@@ -109,18 +117,21 @@ echo $line
 ```
 
 Redirect a custom file descriptor to stdin of a command
+
 ```Bash
 # redirects FD3 to stdin of grep
 grep -i "foo" <&3
 ```
 
 Closing the file using file descriptor.
+
 ```Bash
 # By redirecting 3 to **-**, bash closes the file with FD 3
 exec 3>&-
 ```
 
 ## Writing to file using custom file descriptors
+
 ```Bash
 # open a file for writing
 exec 4>file
@@ -133,6 +144,7 @@ exec 4>&-
 ```
 
 Opening a file for reading and writing using file descriptor is done using the **<>** diamond operator.
+
 ```Bash
 exec 3<>file
 # writing
@@ -146,6 +158,7 @@ exec 3>&-
 ```
 
 ## File redirection
+
 Output redirection carried out using **>** or **>>**. Ex: redirect output of a program from console(default) to a file.
 
 * Redirection to file using **>** - creates non existent file and overwrites the existing file.
@@ -160,6 +173,7 @@ echo "Hello world" > output.txt
 ```
 
 Input redirection is done using **<**.
+
 ```Bash
 # reads the content of file output.txt
 cat output.txt
@@ -169,6 +183,7 @@ cat < output.txt
 ```
 
 ## Redirection using file descriptors
+
 [Article on bash redirection](https://catonmat.net/bash-one-liners-explained-part-three)
 
 ```Bash
@@ -182,7 +197,7 @@ echo "This text gets stored in the file" 1> output.txt
 cat < output.txt
 
 # input redirection using file descriptor
-cat 0< output.txt 
+cat 0< output.txt
 ```
 
 **/dev/null** - null device (discards anything written to it). When output and error are to be ignored, redirect stdout and stderr to this.
@@ -191,7 +206,7 @@ Redirect stderr to stdout using **FD1>&FD2**. File descriptors are read from **l
 
 ```Bash
 # common use case. ignore stdout and stderr
-./my_script.sh > /dev/null 2>&1 
+./my_script.sh > /dev/null 2>&1
 
 # shorthand notation for above command
 ./my_script.sh &>/dev/null
@@ -207,11 +222,12 @@ Redirect stderr to stdout using **FD1>&FD2**. File descriptors are read from **l
 # because duplication happened before redirection, FD2 never gets redirected to FD1
 # in this case only stdout is captured in the file.
 # stderr is still directed to the console(default)
-./my_script.sh 2>&1 > my_script.log 
+./my_script.sh 2>&1 > my_script.log
 ```
 
 ## Here document
-used for embedding text(multiline string) into script. **EOF** is a commonly used delimiter. **supports parameter substitution**. By default preserves tabs and spacing.
+
+Used for embedding text(multiline string) into script. **EOF** is a commonly used delimiter. **supports parameter substitution**. By default preserves tabs and spacing.
 
 ```Bash
 # Syntax
@@ -238,7 +254,9 @@ EOF
 ```
 
 ## Here string
-places single line of string to the stdin of the command. Supports **parameter substitution** within **double quoted strings**.
+
+Places single line of string to the stdin of the command. Supports **parameter substitution** within **double quoted strings**.
+
 ```Bash
 # Syntax
 command <<< "Input string"
@@ -249,6 +267,7 @@ cat <<< "Print this to console"
 ```
 
 ## FIFO(named pipe)
+
 **F**irst **I**n **F**irst **O**ut. Create FIFO using `mkfifo` command. No contents stored on the file system. Kernel passes the data internally.
 
 * FIFO blocked by read operation, until a write operation it remains blocked and vice versa.
@@ -256,6 +275,7 @@ cat <<< "Print this to console"
 * FIFO file have user permissions.
 
 ## Pipe
+
 Connects stdout of one command to stdin of another. Each command following a pipe is executed in its subshell.
 
 ```Bash
@@ -274,7 +294,9 @@ echo "${PIPESTATUS[@]}"
 `PIPESTATUS` array saves the exit codes of all the commands in the pipe stream.
 
 ## Process substitution
-Allows to pipe stdout of multiple commands to another command. 
+
+Allows to pipe stdout of multiple commands to another command.
+
 ```Bash
 # syntax
 # no space between > and ()
@@ -291,6 +313,7 @@ comm -3 <(sort file1 | uniq) <(sort file2 | uniq)
 Bash replaces <() or >() with a file descriptor of a named pipe that it created. command will be writing to the named pipe while the **list** inside () will be connected to the same named pipe awaiting any input available for read.
 
 In process substitution, bash handles the FIFO files.
+
 * Input substitution - **<()**
 * Output substitution - **>()**
 
@@ -302,6 +325,7 @@ wc -l <(grep -i "ar" planets.txt)
 ```
 
 Redirecting stdout to one command while redirecting stderr to another command using process substitution is possible
+
 ```Bash
 # bash replaces >() with a file descriptor.
 # command inside >() listens to the file descriptor(blocked till someone writes)
@@ -313,6 +337,7 @@ command > >(stdout_cmd) 2> >(stderr_cmd)
 ```
 
 ## tee utility
+
 tee takes an input stream and duplicates it to a file and stdout.
 
 ```Bash
@@ -323,10 +348,11 @@ command | tee file
 ```
 
 ## **read** built-in construct
+
 * read data from stdin, file or file descriptors into a variable. Refer [Chapter_7](./chapter_7.md)
 
-
 ## swap stdout and stderr
+
 ```Bash
 # duplicate FD3 to stdout
 # duplicate FD1 to stderr
@@ -337,7 +363,8 @@ command 3>&1 1>&2 2>&1 3>&-
 
 ---
 
-## References:
+## References
+
 * [Bash Guide by Joseph Deveau](https://www.amazon.in/BASH-Guide-Joseph-DeVeau-ebook/dp/B01F8AZ1LE/ref=sr_1_4?keywords=bash&qid=1564983319&s=digital-text&sr=1-4)
 * [Bash redirection](https://catonmat.net/bash-one-liners-explained-part-three)
 * [Process substitution - linuxjournal](https://www.linuxjournal.com/content/shell-process-redirection)

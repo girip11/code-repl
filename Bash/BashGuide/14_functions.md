@@ -27,6 +27,7 @@ Function call is equivalent to a command. Nesting of functions is possible.
 Functions can access and modify global variables. local variables inside a function are not visible outside. local variables are defined using the `local` keyword.
 
 Inside a function, local variable hides the global variables with the same name.
+
 ```Bash
 function print_message(){
   local msg="Hello world"
@@ -35,6 +36,7 @@ function print_message(){
 ```
 
 ## Parameter to functions
+
 Function parameters are accessed as positional parameters starting from $1 similar to a script.
 
 ```Bash
@@ -68,5 +70,6 @@ echo "$result"
 
 ---
 
-## References:
+## References
+
 * [Bash Guide by Joseph Deveau](https://www.amazon.in/BASH-Guide-Joseph-DeVeau-ebook/dp/B01F8AZ1LE/ref=sr_1_4?keywords=bash&qid=1564983319&s=digital-text&sr=1-4)

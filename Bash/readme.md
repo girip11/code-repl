@@ -10,7 +10,8 @@ Any one of these two should help you become comfortable with bash scripting. You
 
 * [Advanced bash scripting guide](https://www.tldp.org/LDP/abs/html/index.html)
 
-## Additional references:
+## Additional references
+
 * [Computer hope Bash Basics](https://www.computerhope.com/unix/ubash.htm#command-execution-environment-subshell)
 
 There is also the [Bash manual](https://www.gnu.org/software/bash/manual/) which is available in multiple formats.
