@@ -1,33 +1,45 @@
 {
-	"folders": [{
-		"path": "."
-	}],
-	"settings": {
-		"[ruby]": {
-			"editor.formatOnSave": true
-		},
-		"editor.renderWhitespace": "all",
-		"editor.formatOnSaveTimeout": 1500,
-		"editor.tabSize": 2,
-		"editor.insertSpaces": true,
-		"editor.detectIndentation": false,
-		"editor.fontSize": 16,
-		"terminal.integrated.rendererType": "dom",
-		"ruby.codeCompletion": false,
-		"ruby.intellisense": false,
-		"solargraph.useBundler": true,
-		"solargraph.bundlerPath": "/home/girish/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/bundler-2.0.1/exe/bundle",
-		"solargraph.diagnostics": true,
-		"solargraph.completion": true,
-		"solargraph.definitions": true,
-		"solargraph.formatting": true,
-		"solargraph.references": true,
-		"solargraph.hover": true,
-		"solargraph.autoformat": true,
-		"solargraph.rename": true,
-		"solargraph.checkGemVersion": false,
-		"solargraph.symbols": true,
-		"ruby.lintDebounceTime": 500,
-		"git.autorefresh": true
-	}
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "[ruby]": {
+      "editor.formatOnSave": true
+    },
+    "editor.renderWhitespace": "all",
+    "editor.formatOnSaveTimeout": 1500,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.fontSize": 16,
+    "terminal.integrated.rendererType": "dom",
+    "ruby.rubocop.onSave": true,
+    "ruby.rubocop.useBundler": true,
+    "ruby.lint": {
+      "rubocop": true
+    },
+    // "ruby.rubocop.configFilePath": "./.rubocop.yml",
+    "ruby.format": "rubocop",
+    "ruby.useBundler": true,
+    "ruby.pathToBundler": "bundle",
+    "ruby.codeCompletion": false,
+    "ruby.intellisense": false,
+    "ruby.useLanguageServer": false,
+    "solargraph.useBundler": true,
+    "solargraph.bundlerPath": "bundle",
+    "solargraph.diagnostics": true,
+    "solargraph.completion": true,
+    "solargraph.definitions": true,
+    "solargraph.formatting": false,
+    "solargraph.references": true,
+    "solargraph.hover": true,
+    "solargraph.autoformat": false,
+    "solargraph.rename": true,
+    "solargraph.checkGemVersion": false,
+    "solargraph.symbols": true,
+    "ruby.lintDebounceTime": 500,
+    "git.autorefresh": true
+  }
 }

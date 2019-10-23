@@ -1,0 +1,23 @@
+---
+include:
+  - "**/*.rb"
+exclude:
+  - spec/**/*
+  - test/**/*
+  - vendor/**/*
+  - ".bundle/**/*"
+  - gem/dependencies/**/*
+  - bower_components/**/*
+  - vendor_sample/**/*
+  - tmp/**/*
+  - node_modules/**/*
+  - log/**/*
+require: []
+domains: []
+reporters:
+  - rubocop
+  - require_not_found
+plugins:
+  - runtime
+require_paths: []
+max_files: 10000
