@@ -3,12 +3,30 @@
 Globs(wildcards) are not regular expressions. These are wildcards for searching files. **Glob characters helps in pathname expansion.**
 If one of the below characters appear, then the word is considered as a pattern and is replaced with matching files sorted alphabetically.
 
-**NOTE**: globbing/pathname expansion doesnot work inside either single or double quotes.
+**NOTE**: globbing/pathname expansion **doesnot work as expected inside either single or double quotes.**
 
 ```Bash
 echo *.java
 echo '*.java'
 echo "*.java"
+
+# Note the difference when globs are put inside quotes
+# and used without quotes
+
+# Here the pattern is expanded to all the files in
+# directory /etc/cron.d and made in to a single string
+# This loop will run for only one iteration
+for file in "/etc/cron.d/*"
+do
+  echo "$file"
+done
+
+# Iterates through every file in the directory /etc/cron.d/
+for file in /etc/cron.d/*
+do
+  echo "$file"
+done
+
 ```
 
 ## Glob characters
