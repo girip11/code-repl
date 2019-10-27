@@ -3,7 +3,9 @@
 ## Indexed Arrays
 
 ### Declaration and initialization
+
 Array index starts from 0.
+
 ```Bash
 # declares an empty array
 array=()
@@ -29,6 +31,7 @@ echo $array
 ### Accessing array elements
 
 Accessing array elements is done with the syntax `${array_name[index]}`
+
 ```Bash
 # Various ways to access array elements
 array=('Item1' 'Item2' 'Item3' 'Item4')
@@ -71,6 +74,7 @@ echo $count
 ```
 
 ### Metadata (length and indexes)
+
 ```Bash
 array=('Hello' 'foo' 'bar' 'welcome' 'home')
 
@@ -86,7 +90,8 @@ echo ${!array[@]}
 echo ${!array[*]}
 ```
 
-### Deletion
+### Deletion in arrays
+
 ```Bash
 # all three below does unset the entire array
 unset -v array
@@ -98,9 +103,11 @@ unset -v array[i]
 ```
 
 ## Associative arrays
+
 key is a string in associative arrays. Key can be quoted or unquoted while using with associative arrays.
 
 ### Declaration
+
 ```bash
 # declares assosiative array
 declare -A array
@@ -114,6 +121,7 @@ array=(['foo']='bar' ['key']='value')
 ```
 
 ### Accessing elements
+
 ```Bash
 # access a particular element
 echo "${array[foo]}"
@@ -123,7 +131,7 @@ echo "${array['foo']}"
 echo ${#array[@]}
 echo ${#array[*]}
 
-# access all the values 
+# access all the values
 echo "${array[@]}" # separate string
 echo "${array[*]}" # combine to single string
 
@@ -164,9 +172,9 @@ echo "$key_string"
 echo "${#array['foo']}"
 ```
 
-### Deletion
+### Deletion in associative arrays
+
 ```Bash
-# 
 unset -v array
 unset -v array[@]
 unset -v array[*]
@@ -178,5 +186,6 @@ unset -v array['foo']
 
 ---
 
-## References:
+## References
+
 * [Bash Guide by Joseph Deveau](https://www.amazon.in/BASH-Guide-Joseph-DeVeau-ebook/dp/B01F8AZ1LE/ref=sr_1_4?keywords=bash&qid=1564983319&s=digital-text&sr=1-4)

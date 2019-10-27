@@ -1,7 +1,9 @@
 # Conditional blocks
+
 0 is true, any other value is false.
 
 ## Exit codes
+
 * value between 0 - 255
 * 0 is success, 1 default value for failure
 * `true` and `false` are two commands that do nothing, but return exit codes 0 and 1 respectively.
@@ -17,6 +19,7 @@ echo $?
 ```
 
 ## Standard exit codes
+
 | Exit code | description                   |
 | --------- | ----------------------------- |
 | 0         | success                       |
@@ -30,7 +33,8 @@ echo $?
 | 255*      | Exit code out of range        |
 
 ## If
-* if-elif-else statements can be nested
+
+`if-elif-else` statements can be nested
 
 ```Bash
 # if syntax
@@ -60,7 +64,8 @@ else
 fi
 ```
 
-## Case
+## Case statement
+
 searches in order, executes first matching pattern. **globs**(wildcards and extended globs set using shell option) can be used in **pattern matching**.
 
 ```Bash
@@ -79,7 +84,9 @@ esac
 ```
 
 ## Select
+
 Uses `PS3` variable to print its prompt. Prompts user to make decision.User enters a number starting from 1 till the number of items in the values to be selected. Executes in loop till break keyword.
+
 ```Bash
 # Syntax
 # PS3="Prompt title here"
@@ -94,7 +101,7 @@ fruits=("apple" "mango" "pineapple" "orange" "exit")
 select fruit in "${fruits[@]}"
 do
   if [[ $fruit == "exit" ]]
-  then 
+  then
     echo "Exiting..."
     break
   fi
@@ -103,23 +110,27 @@ done
 ```
 
 ## Conditionals
+
 | condition | descriptions                                                                                                                                  |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | !         | Negates a test or exit status                                                                                                                 |
 | \[ \]     | tests expression in brackets and returns true or false. shell builtin. consider it obselete. same as the **test** builtin. Offers portability |
 | \[\[\]\]  | tests expression in brackets and returns true or false. more flexibility than above tes. Affects portability since POSIX doesnot support this |
 
-## Differences between \[ \] and \[\[ \]\] 
+## Differences between \[ \] and \[\[ \]\]
+
 * within \[ \], variables should be quoted.
 * values should be escaped within \[ \]
-* \[ \] uses **-a** for logical and and **-r** for logical or while \[\[ \]\] can use && and || 
+* \[ \] uses **-a** for logical and and **-r** for logical or while \[\[ \]\] can use && and ||
 * \[\[ \]\] can perform pattern matching using **=** operator and regular expression matching using **=~** operator.
 
 **NOTE**: \[ \] is a sh test. it is obsolete. Always use \[\[ \]\] in bash scripting.
 `help test` gives notes on various tests available
 
 ## Arithmetic tests
-comparison operators
+
+Comparison operators
+
 * **-eq** - equals
 * **-ne** - not equals
 * **-lt** - less than
@@ -128,6 +139,7 @@ comparison operators
 * **-ge** - greater than or equal to
 
 ## String tests
+
 * **-z** - true if string is empty
 * **-n** - true if string is not empty
 * **string1 = string2** - equals
@@ -137,6 +149,7 @@ comparison operators
 * **string1 > string2** - lexicographic comparison
 Bash specific regex string comparison
 * **string1 =~ string_regex** - regex equals
+
   ```Bash
   msg="hello"
 
@@ -154,7 +167,9 @@ Bash specific regex string comparison
   ````
 
 ## File tests
+
 Commonly used file tests are listed below. For more tests turn to the reference book.
+
 * **-e FILE** - true if file exists
 * **-f FILE** - true if exists and regular file
 * **-d FILE** - true if FILE exists and is a directory
@@ -171,16 +186,21 @@ Commonly used file tests are listed below. For more tests turn to the reference 
 * **FILE1 -ot FILE2** - older than
 
 ## Logical tests
+
 Only supported inside `[[]]`
+
 * **expr1 && expr2** - logical AND
 * **expr1 || expr2** - logical OR
 
 ## Pattern tests
+
 Only supported by `[[]]`
+
 * **string = pattern** or **string == pattern**- true if string matches pattern
 * **string =~ pattern** - true if string matches **pattern regex**.
 
 ### Character classes for pattern matching
+
 | class  | description               |
 | ------ | ------------------------- |
 | alnum  | alpha and digit           |
@@ -214,9 +234,11 @@ done
 ```
 
 ## Miscellaneous
+
 * **-o OPT** - true if shell option is set (option that was set using the **set builtin** and not using **shopt builtin**).
 
 * **-v VAR** - true if shell variable is set.
+
 ```Bash
 # Other options that can be set using set buitlin
 # `help set` for more information on options that can be set using the **set** shell buitlin.
@@ -231,11 +253,11 @@ then
 fi
 ```
 
-
 ---
 
-## References:
+## References
+
 * [Bash Guide by Joseph Deveau](https://www.amazon.in/BASH-Guide-Joseph-DeVeau-ebook/dp/B01F8AZ1LE/ref=sr_1_4?keywords=bash&qid=1564983319&s=digital-text&sr=1-4)
 * [Arithmetic expressions with if](https://stackoverflow.com/questions/8304005/how-do-i-do-if-statement-arithmetic-in-bash)
-* [ Difference between \[ \] and \[\[ \]\]](https://stackoverflow.com/questions/3427872/whats-the-difference-between-and-in-bash)
+* [Difference between \[ \] and \[\[ \]\]](https://stackoverflow.com/questions/3427872/whats-the-difference-between-and-in-bash)
 * [Character classes and bracket expressions](https://www.gnu.org/software/grep/manual/html_node/Character-Classes-and-Bracket-Expressions.html)

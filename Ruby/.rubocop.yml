@@ -1,0 +1,11 @@
+---
+# Reference: https://rubocop.readthedocs.io/en/latest/configuration/
+
+inherit_gem:
+  rubocop-github:
+    - config/default.yml
+    - config/rails.yml
+
+AllCops:
+  # The same version would be picked up from .ruby-version
+  TargetRubyVersion: 2.5.1

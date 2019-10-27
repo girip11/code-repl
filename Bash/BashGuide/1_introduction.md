@@ -1,8 +1,11 @@
 # Chapter-1
-  Bash - Bourne-Again SHell. It is a command interpreter.
+
+Bash - Bourne-Again SHell. It is a command interpreter.
 
 ## Setting bash as default shell for user
+
 `$SHELL` variable helps to determine the shell we are currently on. To set the default shell for a user, use the below commands
+
 ```Bash
 # Default shell for a user
 usermod -s /bin/bash <username>
@@ -13,6 +16,7 @@ echo "SHELL=/bin/bash exec /bin/bash --login" >> ~/.profile
 ```
 
 ## Verbose debugging mode
+
 ```Bash
 #!/bin/bash
 
@@ -27,11 +31,13 @@ set +xv
 ```
 
 ## Shell prompts
+
 **$** - Bourne, Bash, POSIX or Korn shell
 **%** - csh or zsh shell
 **\#** - executing commands as root user
 
 ## Command help within the shell
+
 ```Bash
 # help on man command
 man --help
@@ -56,5 +62,6 @@ man -k bash
 
 ---
 
-## References:
+## References
+
 * [Bash Guide by Joseph Deveau](https://www.amazon.in/BASH-Guide-Joseph-DeVeau-ebook/dp/B01F8AZ1LE/ref=sr_1_4?keywords=bash&qid=1564983319&s=digital-text&sr=1-4)

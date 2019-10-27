@@ -1,9 +1,10 @@
 # Chapter-7: Special characters
 
 ## Special characters
+
 **$** - variable value fetching
 
-**"** - string 
+**"** - string
 
 **\#** - comment
 
@@ -25,61 +26,70 @@ echo "hello world"; echo $(pwd);
 ```
 
 ## Logical operators
-**&&** - logical AND
-**||** - logical OR
+
+* **&&** - logical AND
+* **||** - logical OR
 Commands return exit code **0(zero)** on success.
+
 ```Bash
 cd scripts_dir || mkdir scripts_dir && cd scripts_dir
 ```
 
 ## directory traversal
+
 * **~** - home directory of currently logged in user
 * **.** - current directory
 * **..** - parent directory of current directory. parent directory of root directory is itself.
 * **/** - filename/path separator
 
 ## Quoting
+
 Use string quoting whereever **word splitting using whitespace** can happen.
 
 * **' '(single quotes)** - represents a string literal. No character has a special meaning inside single quotes.
 
 * **" "(double quotes)** - represents string. parameter expansion, arithmetic expansion, command substitution are carried out. Can be thought of similar to **String interpolation** in programming languages
 
-* **\\** - escape character. 
-```Bash
-my_planet="Earth"
-echo 'The planet that I live in is: ${my_planet}'
-echo "The planet that I live in is: ${my_planet}"
-echo "The planet that I live in is: \"${my_planet}\""
-```
+* **\\** - escape character.
 
-**NOTE**: To avoid any special processing of a string use single quotes, in all other cases use double quotes. 
+  ```Bash
+  my_planet="Earth"
+  echo 'The planet that I live in is: ${my_planet}'
+  echo "The planet that I live in is: ${my_planet}"
+  echo "The planet that I live in is: \"${my_planet}\""
+  ```
+
+**NOTE**: To avoid any special processing of a string use single quotes, in all other cases use double quotes.
 
 ## Redirection
-**>** - redirects standard output (usually we redirect to a file)
 
-**>>** - redirects and appends standard output to the target (usually we redirect to a file)
+* **>** - redirects standard output (usually we redirect to a file)
 
-**<** - redirects standard input. (read contents of a file)
+* **>>** - redirects and appends standard output to the target (usually we redirect to a file)
 
-**<<** - Here document. reads string until a delimiter is specified.
+* **<** - redirects standard input. (read contents of a file)
 
-**<<<** - Here string. reads string that follows immediately
+* **<<** - Here document. reads string until a delimiter is specified.
 
-**|** - redirects stdout of a command to stdin of another command. Each command/command group is a pipe is executed in its own subshell
+* **<<<** - Here string. reads string that follows immediately
+
+* **|** - redirects stdout of a command to stdin of another command. Each command/command group is a pipe is executed in its own subshell
+
 ```Bash
 echo $BASHPID
 { echo $BASHPID; echo $BASHPID > pid1.txt; } | echo $BASHPID
 ```
 
-
 ## Groups
-**{} Inline group**  - commands within braces are tread as single command. Space should be given between the  breaces and commands.**Final command must be terminated with semicolon**. Commands executed within current shell's context
+
+* **{} Inline group**  - commands within braces are tread as single command. Space should be given between the  breaces and commands.**Final command must be terminated with semicolon**. Commands executed within current shell's context
+
 ```bash
 cd my_dir || {mkdir my_dir; cd my_dir;}
 ```
 
-**() command group** - commands within are executed in a separate subshell. subshell variables are not visible to the parent shell. Executing many commands in subshell might slowdown the script execution.
+* **() command group** - commands within are executed in a separate subshell. subshell variables are not visible to the parent shell. Executing many commands in subshell might slowdown the script execution.
+
 ```bash
 var1='foo'
 var2='bar'
@@ -93,6 +103,7 @@ echo "$greeting, $var1 and $var2"
 ```
 
 **(()) arithmetic expression** - enclosing arithmetic expressions. Bash knows only integer math. Arithmetic expressions when used for condition test **returns 1 on true and 0 on false.**
+
 ```bash
 x=1;y=2;z=3;
 echo $((x + y * z))  # arithmetic expansion
@@ -104,8 +115,10 @@ echo $(($result == 7)) # in arithmetic expression parameter dereferencing($) is 
 **NOTE**: Commands groups and arithmetic expression can be expanded by preceding them with **$**. This is referred to as **command substitution and arithmetic expansion** respectively
 
 ## let built-in
+
 **let** is a built-in command for math operations.
 let builtin enforces strict spacing while **Arithmetic expression** doesn't.  
+
 ```Bash
 let z=5
 let z=$z+1
@@ -117,11 +130,12 @@ echo $z
 ```
 
 ## Floating point and complex arithmetic
+
 Bash understands only integers. We need to use external utility like **bc** for floating point arithmetic.
 
-
 ## read builtin
-Reads a line of text from standard input. **newline** is considered as the end of line. But it can be changed using **-d** option. After reading the line, read performs word splitting as per IFS (Internal Field Separators). Value read is assigned to the variable used in the command. If no variable is used, the value is stored in the variable called **REPLY**. 
+
+Reads a line of text from standard input. **newline** is considered as the end of line. But it can be changed using **-d** option. After reading the line, read performs word splitting as per IFS (Internal Field Separators). Value read is assigned to the variable used in the command. If no variable is used, the value is stored in the variable called **REPLY**.
 **read** returns non zero exit code(failure) when EOF (Ctrl + D) is encountered.
 
 `help read` for more information on read builtin.
@@ -132,11 +146,10 @@ Some of the important options are
 * **-d** - change the delimiter which is **newline** by default
 * **-r** - read the input as raw string literal(as if text is enclosed within single quotes)
 * **-p prompt** - before starting to read, print the prompt on console
-* **-i initial_text** - use this as initial text when reading from console using option **-e**. 
+* **-i initial_text** - use this as initial text when reading from console using option **-e**.
 * **-s** - silent. Dont display text typed on screen
 * **-t** - timeout in seconds. can be a fraction. if not specified, default value is taken from shell variable **TMOUT** if available. If timeout is 0, read returns success if input was avaiable to read.
 * **-u** - read from file desscriptor instead of standard input
-
 
 ```Bash
 # reads input type and stores as array in variable words
@@ -155,7 +168,8 @@ echo "hello world" | (read; echo "$REPLY")
 
 ---
 
-## References:
+## References
+
 * [Bash Guide by Joseph Deveau](https://www.amazon.in/BASH-Guide-Joseph-DeVeau-ebook/dp/B01F8AZ1LE/ref=sr_1_4?keywords=bash&qid=1564983319&s=digital-text&sr=1-4)
 * [read builtin](https://www.computerhope.com/unix/bash/read.htm)
 * [Advanced bash scripting guide](https://www.tldp.org/LDP/abs/html/arithexp.html)
