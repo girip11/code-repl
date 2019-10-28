@@ -1,19 +1,10 @@
 {
   "folders": [
     {
-      "path": "."
+      "path": "/media/girish/HDD/CodeRepos/Github/repos/code-repl/Ruby"
     }
   ],
   "settings": {
-    "[ruby]": {
-      "editor.formatOnSave": true
-    },
-    "editor.renderWhitespace": "all",
-    "editor.formatOnSaveTimeout": 1500,
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "editor.detectIndentation": false,
-    "editor.fontSize": 16,
     "terminal.integrated.rendererType": "dom",
     "ruby.rubocop.onSave": true,
     "ruby.rubocop.useBundler": true,
@@ -40,6 +31,11 @@
     "solargraph.checkGemVersion": false,
     "solargraph.symbols": true,
     "ruby.lintDebounceTime": 500,
-    "git.autorefresh": true
+    "git.autorefresh": true,
+    "liveServer.settings.port": 5501,
+    "markdownlint.ignore": ["**/*.md.html"],
+    "files.associations": {
+      "*.md.html": "markdown"
+    }
   }
 }
