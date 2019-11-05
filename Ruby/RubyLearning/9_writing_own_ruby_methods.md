@@ -34,7 +34,6 @@ lower_case(str)
 puts str
 ~~~
 
-
 ## Default Parameter Value
 
 ~~~ruby

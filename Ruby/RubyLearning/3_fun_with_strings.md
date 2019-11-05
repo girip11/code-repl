@@ -33,9 +33,12 @@ system(commands)
   ~~~Ruby
   # output of the command displayed by puts
   puts `ls`
+
+  # $? global variable is also set.
+  puts $?
   ~~~
 
-* Shell commands can also be executed using **system** method from kernel module. This spawns a separate process to execute the command. This function returns
+* Shell commands can also be executed using **system** method from kernel module. This spawns a separate process to execute the command. The invoked program will use the current **STDIN**, **STDOUT** and **STDERR** objects of your Ruby program. This function returns
 
   * `true` when command executed successfully
   * `false` when command exited with nonzero exit code.
@@ -43,6 +46,8 @@ system(commands)
 
   ~~~Ruby
   system("bash -version")
+  # Program status with PID
+  puts $?
   ~~~
 
 ## String interpolation
