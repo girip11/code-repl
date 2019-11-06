@@ -5,7 +5,6 @@ source "https://rubygems.org"
 ruby "2.5.1"
 
 # irb colorizing, ri access from irb
-gem "brice", require: false
 
 gem "debase", require: false
 gem "ruby-debug-ide", require: false
