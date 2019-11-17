@@ -1,0 +1,15 @@
+{
+  "[ruby]": {
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80,
+    "editor.wrappingIndent": "none",
+    "editor.renderWhitespace": "all"
+  },
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.fontSize": 16
+}

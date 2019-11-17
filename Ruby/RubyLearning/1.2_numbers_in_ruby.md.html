@@ -1,0 +1,59 @@
+# Numbers in Ruby
+
+* Integer literal consists of sequence of digits. Can contain underscores with in the literal to serve as the **thousands separator**.
+
+  ~~~Ruby
+  number = 1_000
+  puts number
+  ~~~
+
+* Integers can either be an instance **Fixnum** or **Bignum** both of which have **Numeric** as their base class.
+
+* Floating points integer objects are instance of **Float** class.
+
+* Ruby does not provide **++** or **--** operators.
+
+* In Ruby, the **%** module operator behavior differs from that of C/Java when it comes to operands negative numbers. In Ruby, **the sign of the result (for % operator) is always the same as the sign of the second operand.**
+  ~~~Ruby
+  puts (5 % 3)
+  puts (-5 % 3)
+  puts (5 % -3)
+  puts (-5 % -3)
+  ~~~
+
+* In ruby we have two sets of logical operators with different precedence. 
+  * `or` , `||` - Logical OR. **`||` has higher precedence than `or`**
+  * `and`, `&&` - Logical AND. **`&&` has higher precedence than `and`**
+  * `!` , `not` - LOGICAL Negation. **`!` has higher precedence than `not`**
+
+!!! Note: Important
+    Logical operators `or` , `and` and `not` have lower precedence than the assignment operators, while `||`, `&&` and `!` have higher precedence than the assignment operator.
+
+* Assigning value to a variable when its not already set applying the above operator precedence.
+  ~~~ruby
+  # Since || has higher precedence if var is nil
+  # then the expression on the LHS will return "default" and then
+  # the assignment kicks in.
+  var = var || 'default'
+
+  # idiomatic shorthand for the above expression
+  var ||= "default"
+  ~~~
+
+* If logical AND, OR operators need to be evaluated after assignments, use operators `and`, `or`, `not` since these operators have lower precedence than the assignment operator.
+
+* To print and inspect a variable to console use `p <var_name>`
+
+* Parallel assignment
+  ~~~Ruby
+  var1, var2, var3 = [1, true, 'Hello']
+  puts var1
+  puts var2
+  puts var3
+  ~~~
+
+## References
+
+* [Numbers in Ruby](http://rubylearning.com/satishtalim/numbers_in_ruby.html)
+
+<!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js"></script><script src="https://casual-effects.com/markdeep/latest/markdeep.min.js?"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
