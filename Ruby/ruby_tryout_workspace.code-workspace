@@ -1,45 +1,30 @@
 {
   "folders": [
     {
-      "path": "."
+      "path": "/media/girish/HDD/CodeRepos/Github/repos/code-repl/Ruby"
     }
   ],
   "settings": {
-    "[ruby]": {
-      "editor.formatOnSave": true
-    },
-    "editor.renderWhitespace": "all",
-    "editor.formatOnSaveTimeout": 1500,
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "editor.detectIndentation": false,
-    "editor.fontSize": 16,
     "terminal.integrated.rendererType": "dom",
-    "ruby.rubocop.onSave": true,
-    "ruby.rubocop.useBundler": true,
-    "ruby.lint": {
-      "rubocop": true
-    },
-    // "ruby.rubocop.configFilePath": "./.rubocop.yml",
-    "ruby.format": "rubocop",
     "ruby.useBundler": true,
     "ruby.pathToBundler": "bundle",
-    "ruby.codeCompletion": false,
-    "ruby.intellisense": false,
-    "ruby.useLanguageServer": false,
+    "ruby.useLanguageServer": true,
+    "ruby.lint": {
+      "rubocop": {
+        "useBundler": true
+      }
+    },
+    "ruby.format": "rufo",
+    "ruby.lintDebounceTime": 1000,
+    "ruby.codeCompletion": "rcodetools",
+    "ruby.intellisense": "rubyLocate",
     "solargraph.useBundler": true,
     "solargraph.bundlerPath": "bundle",
-    "solargraph.diagnostics": true,
-    "solargraph.completion": true,
-    "solargraph.definitions": true,
-    "solargraph.formatting": false,
-    "solargraph.references": true,
-    "solargraph.hover": true,
-    "solargraph.autoformat": false,
-    "solargraph.rename": true,
-    "solargraph.checkGemVersion": false,
-    "solargraph.symbols": true,
-    "ruby.lintDebounceTime": 500,
-    "git.autorefresh": true
+    "git.autorefresh": true,
+    "liveServer.settings.port": 5501,
+    "markdownlint.ignore": ["**/*.md.html"],
+    "files.associations": {
+      "*.md.html": "markdown"
+    }
   }
 }
