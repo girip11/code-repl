@@ -14,7 +14,19 @@
         "useBundler": true
       }
     },
-    "ruby.format": "rufo",
+    "ruby.format": "false",
+
+    "emeraldwalk.runonsave": {
+      "commands": [
+        {
+          "match": "\\.rb$",
+          // "cmd": "echo ${file}",
+          "cmd": "bundle exec rbprettier --write '${file}'",
+          "isAsync": false
+        }
+      ]
+    },
+
     "ruby.lintDebounceTime": 1000,
     "ruby.codeCompletion": "rcodetools",
     "ruby.intellisense": "rubyLocate",
@@ -23,6 +35,7 @@
     "git.autorefresh": true,
     "liveServer.settings.port": 5501,
     "markdownlint.ignore": ["**/*.md.html"],
+    "files.insertFinalNewline": true,
     "files.associations": {
       "*.md.html": "markdown"
     }

@@ -1,111 +1,136 @@
 # Setting up VSCode for ruby and rails projects
 
-* Ruby installation using rbenv is recommended. Steps to install ruby using rbenv is [here](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-18-04)
+* Ruby installation using rbenv is recommended. Steps to install ruby using rbenv is [here](./install_ruby_ubuntu.md)
 
-Install the following ruby gems or add these gems to the **Gemfile** if using bundler.
+## Setting up development environment using bundler
 
-* ruby-debug-ide
-* debase
-* solargraph
-* rubocop
+**Gemfile** contents.
 
-Entries to add in the Gemfile under **development** group
+~~~ruby
+# frozen_string_literal: true
 
-```Ruby
-  gem 'debase', require: false
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  # If used in rails project
-  gem 'rubocop-rails', require: false
+source "https://rubygems.org"
 
-  # Rubocop configuration from github. This will enforce github style guide for ruby
-  # You could also use rubocop-airbnb
-  gem "rubocop-github", require: false
+ruby "2.5.1"
 
-  gem 'ruby-debug-ide', require: false
-  gem 'solargraph', require: false
-```
+gem "debase", require: false
+gem "ruby-debug-ide", require: false
+
+# mry stands for - Migrate Rubocop YAML
+gem "mry", require: false
+
+# advanced ruby repl console
+gem "pry", require: false
+# for rails projects
+# gem "pry-rails", require: false
+
+gem "rcodetools", require: false
+gem "rubocop", "~> 0.70.0", require: false
+gem "rubocop-github", "~> 0.13.0", require: false
+gem "rubocop-performance", "~> 1.3.0", require: false
+
+# code formatting
+gem "prettier", require: false
+
+# For rails project
+# gem "rubocop-rails", require: false
+
+gem "solargraph", require: false
+~~~
+
+Execute `bundle install --path <GEM_INSTALLATION_PATH>` to install these dependencies. Bundler configuration will be present in `.bundle/config` file. Sample bundler configuration file
+
+~~~Conf
+---
+BUNDLE_PATH: "./gem/dependencies/"
+BUNDLE_DISABLE_SHARED_GEMS: "true"
+~~~
 
 ## VSCode Extensions
 
-* Install the ruby vscode extension [**Ruby by Peng Lv**](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby). This extension provides ruby language support.
+* [Ruby vscode extension](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) for ruby language support.
 
-* Install rubocop extension
+* [Solargraph extension](https://marketplace.visualstudio.com/items?itemName=castwide.solargraph) for intellisense.
 
-```YAML
-# RUBOCOP configuration
----
-# Reference: https://rubocop.readthedocs.io/en/latest/configuration/
+* [Ruby symbols](https://marketplace.visualstudio.com/items?itemName=miguel-savignano.ruby-symbols)
 
-inherit_gem:
-  rubocop-github:
-    - config/default.yml
-    - config/rails.yml
+* [Endwise in ruby](https://marketplace.visualstudio.com/items?itemName=kaiwood.endwise) to wisely add `end` in urby
 
-AllCops:
-  # The same version would be picked up from .ruby-version
-  TargetRubyVersion: 2.5.1
-```
+* [Slim language support](https://marketplace.visualstudio.com/items?itemName=sianglim.slim) **if using slim templating** in rails application.
 
-```JSON
-  // VSCode workspace settings
-  // Use appropriate path
-  "[ruby]": {
-    "editor.formatOnSave": true
-  },
-  "ruby.pathToBundler": "bundle",
-  "ruby.useBundler": true,
-  "ruby.format": "rubocop",
-  "ruby.lint": {
-    "rubocop": true
-  },
-  "ruby.rubocop.useBundler": true,
-  "ruby.rubocop.onSave": true,
-```
+* [Prettier Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for ruby code formatting.
 
-* Install [**Ruby solargraph by castwide**](https://github.com/castwide/solargraph). This extension provides intellisense, code formatting, go to definitions, code completion etc. Place the below solargraph settings in teh vscode workspace that contains the **Gemfile**. Since we use bundler for gem dependency management, useBundler setting is enabled in solargraph. Hence we need to have the Gemfile to be available in the root of the vscode workspace. So it is recommended to create a workspace for each rails project.
+* [Run On Save](https://marketplace.visualstudio.com/items?itemName=emeraldwalk.RunOnSave) to trigger ruby prettier formatting on saving the file.
 
-  ```JSON
-  "ruby.useLanguageServer": false,
-  "ruby.codeCompletion": false,
-  "ruby.intellisense": false,
-  "solargraph.useBundler": true,
-  "solargraph.bundlerPath": "<PATH TO BUNDLER EXE Ex:/home/girish/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/bundler-2.0.1/exe/bundle>",
-  "solargraph.diagnostics": true,
-  "solargraph.completion": true,
-  "solargraph.definitions": true,
-  "solargraph.formatting": false,  // solargraph also uses rubocop.
-  "solargraph.references": true,
-  "solargraph.hover": true,
-  "solargraph.autoformat": false,
-  "solargraph.rename": true,
-  "solargraph.checkGemVersion": false,
-  "solargraph.symbols": true,
-  "ruby.lintDebounceTime": 500
-  ```
+## VSCode workspace configuration
 
-* To debug rails application, add the following debug configuration to launch.json inside the .vscode directory  in the workspace.
+~~~JSON
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "[ruby]": {
+      "editor.formatOnSave": true
+    },
+    "editor.tabSize": 2,
+    "editor.fontSize": 16,
+    "terminal.integrated.rendererType": "dom",
+    //
+    "ruby.useBundler": true,
+    "ruby.pathToBundler": "bundle",
+    "ruby.useLanguageServer": true,
+    "ruby.lint": {
+      "rubocop": {
+        "useBundler": true
+      }
+    },
+    "ruby.format": false,
 
-  ```JSON
-  {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-  "version": "0.2.0",
-  "configurations": [{
-    "name": "Rails server",
-    "type": "Ruby",
-    "request": "launch",
-    "program": "${workspaceRoot}/bin/rails",
-    "args": [
-      "server"
-    ],
-      "useBundler": true
-    }]
+    // format using prettier after ruby source file save
+    "emeraldwalk.runonsave": {
+      "commands": [
+        {
+          "match": "\\.rb$",
+          // "cmd": "echo ${file}",
+          "cmd": "bundle exec rbprettier --write '${file}'",
+          "isAsync": false
+        }
+      ]
+    },
+    "ruby.lintDebounceTime": 1000,
+
+    // intellisense
+    "ruby.codeCompletion": "rcodetools",
+    "ruby.intellisense": "rubyLocate",
+
+    // solargraph intellisense
+    "solargraph.useBundler": true,
+    "solargraph.bundlerPath": "bundle",
+    "git.autorefresh": true
   }
-  ```
+}
+~~~
 
-* In the workspace root, in the terminal type `bundle exec solargraph config .` (if bundler is set to true). This command generates **.solargraph.yml** file. Update the settings. Given below is a sample settings for a rails application.
+## Configuring prettier for formatting
+
+In the root folder(ruby workspace folder) create a file `.prettierrc.json` and add the following contents to it
+
+~~~JSON
+{
+  "preferSingleQuotes": false,
+  "printWidth": 100,
+  "addTrailingCommas": true
+}
+~~~
+
+## Configuring solargraph for intellisense
+
+* [**Ruby solargraph by castwide**](https://github.com/castwide/solargraph) extension provides intellisense, go to definitions, code completion etc.
+
+* In the workspace root, in the terminal type `bundle exec solargraph config .` (if bundler is set to true). This command generates **.solargraph.yml** file. Given below is a sample settings for a rails application.
 
   ```YAML
   ---
@@ -140,3 +165,70 @@ AllCops:
   require_paths: []
   max_files: 10000
   ```
+
+## Configuring rubocop for linting
+
+```YAML
+# RUBOCOP configuration
+---
+# Reference: https://rubocop.readthedocs.io/en/latest/configuration/
+
+inherit_gem:
+  rubocop-github:
+    - config/default.yml
+    - config/rails.yml
+
+AllCops:
+  # The same version would be picked up from .ruby-version
+  TargetRubyVersion: 2.5.1
+```
+
+## VSCode ruby debug configuration
+
+Go to the debugger view of VS Code and hit the gear icon. Choose Ruby or Ruby Debugger from the prompt window, then you'll get the sample launch config in .vscode/launch.json. Json with ruby debugger configuration would look like the below json.
+
+```JSON
+{
+    "version": "0.2.0",
+    "configurations": [{
+            "name": "Debug Local File",
+            "type": "Ruby",
+            "request": "launch",
+            "program": "${file}"
+        }
+
+    ]
+}
+```
+
+* Launch the debugging from the debugger view. Use **F9** to set the breakpoints.
+
+## VSCode rails debug configuration
+
+To debug rails application, add the following debug configuration to `launch.json` inside the `.vscode` directory in the workspace.
+
+```JSON
+{
+// Use IntelliSense to learn about possible attributes.
+// Hover to view descriptions of existing attributes.
+// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+"version": "0.2.0",
+"configurations": [{
+  "name": "Rails server",
+  "type": "Ruby",
+  "request": "launch",
+  "program": "${workspaceRoot}/bin/rails",
+  "args": [
+    "server"
+  ],
+    "useBundler": true
+  }]
+}
+```
+
+---
+
+## References
+
+* [Ruby on VSCode](https://medium.com/@terrenceong/ruby-development-with-vs-code-fab258db5f1d)
+* [Debugger Installation](https://github.com/rubyide/vscode-ruby/wiki/1.-Debugger-Installation)
