@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.insertFinalNewline": true,
+    "[typescript]": {
+      "editor.formatOnSave": true
+    },
+    "files.associations": {
+      ".ts": "typescript"
+    }
+  }
+}

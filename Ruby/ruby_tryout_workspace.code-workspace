@@ -1,7 +1,7 @@
 {
   "folders": [
     {
-      "path": "/media/girish/HDD/CodeRepos/Github/repos/code-repl/Ruby"
+      "path": "."
     }
   ],
   "settings": {
@@ -14,7 +14,7 @@
         "useBundler": true
       }
     },
-    "ruby.format": "false",
+    "ruby.format": false,
 
     "emeraldwalk.runonsave": {
       "commands": [
